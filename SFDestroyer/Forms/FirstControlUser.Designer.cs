@@ -33,9 +33,6 @@
             this.label_From = new System.Windows.Forms.Label();
             this.label_To = new System.Windows.Forms.Label();
             this.but_Do_1 = new System.Windows.Forms.Button();
-            this.list_NT = new System.Windows.Forms.ListView();
-            this.fileNames = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
@@ -97,34 +94,6 @@
             this.but_Do_1.UseVisualStyleBackColor = false;
             this.but_Do_1.Click += new System.EventHandler(this.but_Do_1_Click);
             // 
-            // list_NT
-            // 
-            this.list_NT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.list_NT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.list_NT.CheckBoxes = true;
-            this.list_NT.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.fileNames,
-            this.Type});
-            this.list_NT.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.list_NT.HideSelection = false;
-            this.list_NT.Location = new System.Drawing.Point(370, 30);
-            this.list_NT.Name = "list_NT";
-            this.list_NT.Size = new System.Drawing.Size(381, 443);
-            this.list_NT.TabIndex = 5;
-            this.list_NT.UseCompatibleStateImageBehavior = false;
-            this.list_NT.View = System.Windows.Forms.View.Details;
-            // 
-            // fileNames
-            // 
-            this.fileNames.Tag = "fff";
-            this.fileNames.Text = "Name";
-            this.fileNames.Width = 319;
-            // 
-            // Type
-            // 
-            this.Type.Text = "Type";
-            this.Type.Width = 61;
-            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(151, 501);
@@ -139,7 +108,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.list_NT);
             this.Controls.Add(this.but_Do_1);
             this.Controls.Add(this.label_To);
             this.Controls.Add(this.label_From);
@@ -161,9 +129,6 @@
         private System.Windows.Forms.Label label_From;
         private System.Windows.Forms.Label label_To;
         private System.Windows.Forms.Button but_Do_1;
-        private System.Windows.Forms.ListView list_NT;
-        private System.Windows.Forms.ColumnHeader fileNames;
-        private System.Windows.Forms.ColumnHeader Type;
         private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

@@ -28,7 +28,6 @@ namespace SFDestroyer.Forms
             allFiles.Clear();
             allDirs.Clear();
             output = "";
-            list_NT.Items.Clear();
 
             //dialog with choosing a dir for start scanning
             FolderBrowserDialog dialog = new FolderBrowserDialog();
@@ -40,10 +39,7 @@ namespace SFDestroyer.Forms
                 Scanner(path);
 
                 //add items in listview
-                foreach (string file in allFiles)
-                {
-                    list_NT.Items.Add(Path.GetFileNameWithoutExtension(file)).SubItems.Add(Path.GetExtension(file));
-                }
+
                 MessageBox.Show("Yea");
             }
         }

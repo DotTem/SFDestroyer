@@ -59,12 +59,21 @@
       <DependentUpon>SFD_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Code\Program.cs" />
+    <Compile Include="Forms\TableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TableForm.Designer.cs">
+      <DependentUpon>TableForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\FirstControlUser.resx">
       <DependentUpon>FirstControlUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SFD_Main.resx">
       <DependentUpon>SFD_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TableForm.resx">
+      <DependentUpon>TableForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
