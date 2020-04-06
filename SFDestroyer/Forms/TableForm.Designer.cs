@@ -46,6 +46,9 @@
             this.panel_Upper.Name = "panel_Upper";
             this.panel_Upper.Size = new System.Drawing.Size(676, 18);
             this.panel_Upper.TabIndex = 3;
+            this.panel_Upper.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_Upper_MouseDown);
+            this.panel_Upper.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_Upper_MouseMove);
+            this.panel_Upper.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_Upper_MouseUp);
             // 
             // label_CloseWindow
             // 

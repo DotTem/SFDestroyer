@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel_LeftSide = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.but_First = new System.Windows.Forms.Button();
             this.panel_Upside = new System.Windows.Forms.Panel();
             this.panel_Upper = new System.Windows.Forms.Panel();
             this.label_CloseWindow = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.firstControlUser1 = new SFDestroyer.Forms.firstControlUser();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel_LeftSide.SuspendLayout();
             this.panel_Upper.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -51,6 +51,19 @@
             this.panel_LeftSide.Name = "panel_LeftSide";
             this.panel_LeftSide.Size = new System.Drawing.Size(205, 580);
             this.panel_LeftSide.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(0, 120);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(205, 61);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "SFDestroyer";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // but_First
             // 
@@ -121,19 +134,6 @@
             this.firstControlUser1.Name = "firstControlUser1";
             this.firstControlUser1.Size = new System.Drawing.Size(751, 527);
             this.firstControlUser1.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(0, 120);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(205, 61);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "SFDestroyer";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // SFD_Main
             // 

@@ -13,66 +13,34 @@ namespace SFDestroyer.Forms
 {
     public partial class firstControlUser : UserControl
     {
-        //creating lists for files and directories
-        private List<string> allFiles = new List<string>();
-        private List<string> allDirs = new List<string>();
-        private string output = "";
+        bool isSelected = false;
 
         public firstControlUser()
         {
             InitializeComponent();
         }
 
-        private void but_Do_1_Click(object sender, EventArgs e)
+        private void but_SelectPath_Click(object sender, EventArgs e)
         {
-            allFiles.Clear();
-            allDirs.Clear();
-            output = "";
-
             //dialog with choosing a dir for start scanning
             FolderBrowserDialog dialog = new FolderBrowserDialog();
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 string path = dialog.SelectedPath;
-
-                Scanner(path);
-
-                //add items in listview
-
+                txtB_Path.Text = path;
+                isSelected = true;
                 MessageBox.Show("Yea");
             }
         }
 
-        private void Scanner(string path)
+        private void but_Do_1_Click(object sender, EventArgs e)
         {
-            //array = files and subdirs in current directory [path]
-            string[] files_path = Directory.GetFileSystemEntries(path);
-            try
+            if(isSelected)
             {
-                foreach(string file in files_path)
-                {
-                    //if file
-                    if (File.Exists(file))
-                    {
-                        //checking date file last opened
-                        if (dateTimePicker1.Value.Ticks < Convert.ToInt64(File.GetLastWriteTime(file).Ticks) && Convert.ToInt64(File.GetLastWriteTime(file).Ticks) < dateTimePicker2.Value.Ticks)
-                        {
-                            //add file path to list<>
-                            allFiles.Add(file);
-                        }
-                    }
-                    else if (Directory.Exists(file))
-                    {
-                        Scanner(file);
-                    }
-                }
+                TableForm table = new TableForm(txtB_Path.Text, dateTimePicker1, dateTimePicker2);
+                table.Show();
             }
-            catch(System.UnauthorizedAccessException)
-            {
-
-            }
-                
         }
     }
 }
