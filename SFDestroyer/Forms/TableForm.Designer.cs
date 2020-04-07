@@ -33,7 +33,7 @@
             this.list_NT = new System.Windows.Forms.ListView();
             this.fileNames = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstBox_Dirs = new System.Windows.Forms.ListBox();
             this.but_Del = new System.Windows.Forms.Button();
             this.panel_Upper.SuspendLayout();
             this.SuspendLayout();
@@ -95,18 +95,19 @@
             this.Type.Text = "Type";
             this.Type.Width = 90;
             // 
-            // listBox1
+            // lstBox_Dirs
             // 
-            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBox1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(12, 87);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(315, 594);
-            this.listBox1.TabIndex = 7;
+            this.lstBox_Dirs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lstBox_Dirs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lstBox_Dirs.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lstBox_Dirs.FormattingEnabled = true;
+            this.lstBox_Dirs.ItemHeight = 16;
+            this.lstBox_Dirs.Location = new System.Drawing.Point(12, 87);
+            this.lstBox_Dirs.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lstBox_Dirs.Name = "lstBox_Dirs";
+            this.lstBox_Dirs.Size = new System.Drawing.Size(315, 594);
+            this.lstBox_Dirs.TabIndex = 7;
+            this.lstBox_Dirs.DoubleClick += new System.EventHandler(this.lstBox_Dirs_DoubleClick);
             // 
             // but_Del
             // 
@@ -129,7 +130,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(789, 729);
             this.Controls.Add(this.but_Del);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstBox_Dirs);
             this.Controls.Add(this.list_NT);
             this.Controls.Add(this.panel_Upper);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -150,7 +151,7 @@
         private System.Windows.Forms.ListView list_NT;
         private System.Windows.Forms.ColumnHeader fileNames;
         private System.Windows.Forms.ColumnHeader Type;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstBox_Dirs;
         private System.Windows.Forms.Button but_Del;
     }
 }

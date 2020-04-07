@@ -33,7 +33,6 @@
             this.label_From = new System.Windows.Forms.Label();
             this.label_To = new System.Windows.Forms.Label();
             this.but_Do_1 = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.but_SelectPath = new System.Windows.Forms.Button();
             this.txtB_Path = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -96,14 +95,6 @@
             this.but_Do_1.UseVisualStyleBackColor = false;
             this.but_Do_1.Click += new System.EventHandler(this.but_Do_1_Click);
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(147, 500);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(475, 23);
-            this.progressBar1.TabIndex = 6;
-            this.progressBar1.Value = 46;
-            // 
             // but_SelectPath
             // 
             this.but_SelectPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
@@ -133,7 +124,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.Controls.Add(this.txtB_Path);
             this.Controls.Add(this.but_SelectPath);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.but_Do_1);
             this.Controls.Add(this.label_To);
             this.Controls.Add(this.label_From);
@@ -155,7 +145,6 @@
         private System.Windows.Forms.Label label_From;
         private System.Windows.Forms.Label label_To;
         private System.Windows.Forms.Button but_Do_1;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button but_SelectPath;
         private System.Windows.Forms.TextBox txtB_Path;
     }

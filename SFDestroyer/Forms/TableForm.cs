@@ -56,6 +56,11 @@ namespace SFDestroyer.Forms
             InitializeComponent();
             Scanner(path);
 
+            foreach(string filetemp in tempFiles)
+            {
+                allFiles.Add(filetemp);
+            }
+
             foreach(string files in allFiles)
             {
                 list_NT.Items.Add(Path.GetFileName(files)).SubItems.Add(Path.GetExtension(files));
@@ -66,6 +71,7 @@ namespace SFDestroyer.Forms
                 //array = files and subdirs in current directory [path]
                 string[] files_path = Directory.GetFileSystemEntries(mainPath);
                 int file_count = 0;
+
                 try
                 {
                     foreach (string file in files_path)
@@ -77,13 +83,44 @@ namespace SFDestroyer.Forms
                             if (dateTimePicker1.Value.Ticks < Convert.ToInt64(File.GetLastWriteTime(file).Ticks) && Convert.ToInt64(File.GetLastWriteTime(file).Ticks) < dateTimePicker2.Value.Ticks)
                             {
                                 //add file path to list<>
-                                allFiles.Add(file);
+                                tempFiles.Add(file);
+                                file_count++;
                             }
                         }
                         //if dir
                         else if (Directory.Exists(file))
                         {
                             Scanner(file);
+                            //Adding dirs names in listbox
+                            if (tempFiles.Count > 5)
+                            {
+                                int position = 0;
+
+                                // Find position of last "\"
+                                for (int counter = file.Length - 1; counter != 0; counter--)
+                                {
+                                    if (file[counter].ToString(CultureInfo.InvariantCulture) == "\\")
+                                    {
+
+                                        position = counter;
+                                        break;
+                                    }
+                                }
+                                //add dir path to list<>
+                                allDirs.Add(file);
+                                //add dir name to listbox
+                                lstBox_Dirs.Items.Add(Path.GetFileName(file));
+                                //Clearing list of temp files
+                                tempFiles.Clear();
+                            }
+                            else if(tempFiles.Count <= 5 && tempFiles.Count != 0)
+                            {
+                                foreach(string name in tempFiles)
+                                {
+                                    allFiles.Add(name);
+                                }
+                                tempFiles.Clear();
+                            }
                         }
                     }
                 }
@@ -102,7 +139,7 @@ namespace SFDestroyer.Forms
 
         private void list_NT_DoubleClick(object sender, EventArgs e)
         {
-
+            //Return selected index
             string textfile = allFiles[list_NT.SelectedIndices[0]];
             int position = 0;
 
@@ -120,6 +157,13 @@ namespace SFDestroyer.Forms
             Process.Start(new ProcessStartInfo("explorer.exe", " /select, " + textfile));
         }
 
+        private void lstBox_Dirs_DoubleClick(object sender, EventArgs e)
+        {
+            string textdir = allDirs[lstBox_Dirs.SelectedIndex];
+
+            Process.Start(new ProcessStartInfo("explorer.exe", " /select, " + textdir));
+        }
+
         private void but_Del_Click(object sender, EventArgs e)
         {
             File.Delete(allFiles[list_NT.SelectedIndices[0]]);
@@ -131,5 +175,7 @@ namespace SFDestroyer.Forms
                 list_NT.Items.Add(Path.GetFileName(file)).SubItems.Add(Path.GetExtension(file));
             }
         }
+
+
     }
 }
