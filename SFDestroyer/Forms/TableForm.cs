@@ -45,11 +45,17 @@ namespace SFDestroyer.Forms
             MouseDown = false;
         }
         #endregion
-
+        //creating list for temporary files
+        private List<string> tempFiles = new List<string>();
+        private List<string> tempDirs = new List<string>();
         //creating lists for files and directories
         private List<string> allFiles = new List<string>();
-        private List<string> tempFiles = new List<string>();
         private List<string> allDirs = new List<string>();
+
+        public TableForm()
+        {
+
+        }
 
         public TableForm(string path, DateTimePicker dateTimePicker1, DateTimePicker dateTimePicker2)
         {
@@ -101,7 +107,6 @@ namespace SFDestroyer.Forms
                                 {
                                     if (file[counter].ToString(CultureInfo.InvariantCulture) == "\\")
                                     {
-
                                         position = counter;
                                         break;
                                     }
@@ -120,6 +125,10 @@ namespace SFDestroyer.Forms
                                     allFiles.Add(name);
                                 }
                                 tempFiles.Clear();
+                            }
+                            else if(tempFiles.Count >= 5 || tempDirs.Count >= 5)
+                            {
+                                break;
                             }
                         }
                     }
@@ -148,34 +157,35 @@ namespace SFDestroyer.Forms
             {
                 if (textfile[counter].ToString(CultureInfo.InvariantCulture) == "\\")
                 {
-
                     position = counter;
                     break;
                 }
             }
-            //Start explorer.exe
+            //Open explorer with selected file
             Process.Start(new ProcessStartInfo("explorer.exe", " /select, " + textfile));
         }
 
+        //Double click on dir
         private void lstBox_Dirs_DoubleClick(object sender, EventArgs e)
         {
             string textdir = allDirs[lstBox_Dirs.SelectedIndex];
-
+            //Open explorer with selected dir
             Process.Start(new ProcessStartInfo("explorer.exe", " /select, " + textdir));
         }
 
         private void but_Del_Click(object sender, EventArgs e)
         {
+            //Delete file from file system
             File.Delete(allFiles[list_NT.SelectedIndices[0]]);
+            //Delete file path from list<>
             allFiles.RemoveAt(list_NT.SelectedIndices[0]);
-            list_NT.Items.Clear();
 
+            //Updating listview
+            list_NT.Items.Clear();
             foreach (string file in allFiles)
             {
                 list_NT.Items.Add(Path.GetFileName(file)).SubItems.Add(Path.GetExtension(file));
             }
         }
-
-
     }
 }

@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\RoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\FirstControlUser.cs">
       <SubType>UserControl</SubType>
     </Compile>

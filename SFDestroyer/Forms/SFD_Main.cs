@@ -16,7 +16,7 @@ namespace SFDestroyer
         
 
         #region Moving
-        //coords of nouse
+        //coords of mouse
         private int mouseX = 0;
         private int mouseY = 0;
         //is mouse down

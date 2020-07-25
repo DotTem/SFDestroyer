@@ -62,7 +62,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(205, 61);
             this.button1.TabIndex = 1;
-            this.button1.Text = "SFDestroyer";
+            this.button1.Text = "Шлюха";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // but_First

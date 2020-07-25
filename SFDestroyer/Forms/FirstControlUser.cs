@@ -18,6 +18,10 @@ namespace SFDestroyer.Forms
         public firstControlUser()
         {
             InitializeComponent();
+            System.Drawing.Drawing2D.GraphicsPath Button_Path = new System.Drawing.Drawing2D.GraphicsPath();
+            Button_Path.AddEllipse(0, 0, this.but_Do_1.Width + 10, this.but_Do_1.Height);
+            Region Button_Region = new Region(Button_Path);
+            this.but_Do_1.Region = Button_Region;
         }
 
         private void but_SelectPath_Click(object sender, EventArgs e)
