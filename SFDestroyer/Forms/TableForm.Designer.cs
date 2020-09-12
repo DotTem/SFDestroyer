@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel_Upper = new System.Windows.Forms.Panel();
             this.label_CloseWindow = new System.Windows.Forms.Label();
             this.list_NT = new System.Windows.Forms.ListView();
@@ -35,6 +36,10 @@
             this.type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lstBox_Dirs = new System.Windows.Forms.ListBox();
             this.but_Del = new SFDestroyer.Classes.RoundButton();
+            this.label_Timer = new System.Windows.Forms.Label();
+            this.timeDoing = new System.Windows.Forms.Timer(this.components);
+            this.label_timePassed = new System.Windows.Forms.Label();
+            this.txtBox_Console = new System.Windows.Forms.TextBox();
             this.panel_Upper.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +85,7 @@
             this.list_NT.Location = new System.Drawing.Point(371, 64);
             this.list_NT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.list_NT.Name = "list_NT";
-            this.list_NT.Size = new System.Drawing.Size(444, 616);
+            this.list_NT.Size = new System.Drawing.Size(444, 594);
             this.list_NT.TabIndex = 6;
             this.list_NT.UseCompatibleStateImageBehavior = false;
             this.list_NT.View = System.Windows.Forms.View.Details;
@@ -108,7 +113,7 @@
             this.lstBox_Dirs.Location = new System.Drawing.Point(12, 64);
             this.lstBox_Dirs.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lstBox_Dirs.Name = "lstBox_Dirs";
-            this.lstBox_Dirs.Size = new System.Drawing.Size(353, 616);
+            this.lstBox_Dirs.Size = new System.Drawing.Size(353, 594);
             this.lstBox_Dirs.TabIndex = 7;
             this.lstBox_Dirs.DoubleClick += new System.EventHandler(this.lstBox_Dirs_DoubleClick);
             // 
@@ -132,12 +137,53 @@
             this.but_Del.Text = "Delete";
             this.but_Del.Click += new System.EventHandler(this.but_Del_Click);
             // 
+            // label_Timer
+            // 
+            this.label_Timer.AutoSize = true;
+            this.label_Timer.ForeColor = System.Drawing.SystemColors.Control;
+            this.label_Timer.Location = new System.Drawing.Point(92, 701);
+            this.label_Timer.Name = "label_Timer";
+            this.label_Timer.Size = new System.Drawing.Size(35, 16);
+            this.label_Timer.TabIndex = 12;
+            this.label_Timer.Text = "00:00";
+            // 
+            // timeDoing
+            // 
+            this.timeDoing.Interval = 1000;
+            this.timeDoing.Tick += new System.EventHandler(this.timeDoing_Tick);
+            // 
+            // label_timePassed
+            // 
+            this.label_timePassed.AutoSize = true;
+            this.label_timePassed.ForeColor = System.Drawing.SystemColors.Control;
+            this.label_timePassed.Location = new System.Drawing.Point(9, 701);
+            this.label_timePassed.Name = "label_timePassed";
+            this.label_timePassed.Size = new System.Drawing.Size(77, 16);
+            this.label_timePassed.TabIndex = 13;
+            this.label_timePassed.Text = "Time passed:";
+            // 
+            // txtBox_Console
+            // 
+            this.txtBox_Console.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.txtBox_Console.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBox_Console.ForeColor = System.Drawing.SystemColors.Control;
+            this.txtBox_Console.Location = new System.Drawing.Point(133, 665);
+            this.txtBox_Console.Multiline = true;
+            this.txtBox_Console.Name = "txtBox_Console";
+            this.txtBox_Console.ReadOnly = true;
+            this.txtBox_Console.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtBox_Console.Size = new System.Drawing.Size(467, 52);
+            this.txtBox_Console.TabIndex = 14;
+            // 
             // TableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(827, 729);
+            this.Controls.Add(this.txtBox_Console);
+            this.Controls.Add(this.label_timePassed);
+            this.Controls.Add(this.label_Timer);
             this.Controls.Add(this.but_Del);
             this.Controls.Add(this.lstBox_Dirs);
             this.Controls.Add(this.list_NT);
@@ -150,6 +196,7 @@
             this.panel_Upper.ResumeLayout(false);
             this.panel_Upper.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -162,5 +209,9 @@
         private System.Windows.Forms.ColumnHeader type;
         private System.Windows.Forms.ListBox lstBox_Dirs;
         private Classes.RoundButton but_Del;
+        private System.Windows.Forms.Label label_Timer;
+        private System.Windows.Forms.Timer timeDoing;
+        private System.Windows.Forms.Label label_timePassed;
+        private System.Windows.Forms.TextBox txtBox_Console;
     }
 }

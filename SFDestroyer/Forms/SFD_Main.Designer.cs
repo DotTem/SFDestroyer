@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.panel_LeftSide = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.but_Weather = new System.Windows.Forms.Button();
             this.but_First = new System.Windows.Forms.Button();
             this.panel_Upside = new System.Windows.Forms.Panel();
             this.panel_Upper = new System.Windows.Forms.Panel();
             this.label_CloseWindow = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.firstControlUser1 = new SFDestroyer.Forms.firstControlUser();
+            this.weatherControlUser = new SFDestroyer.Forms.WeatherControlUser();
+            this.firstControlUser = new SFDestroyer.Forms.firstControlUser();
             this.panel_LeftSide.SuspendLayout();
             this.panel_Upper.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -44,7 +45,7 @@
             // panel_LeftSide
             // 
             this.panel_LeftSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel_LeftSide.Controls.Add(this.button1);
+            this.panel_LeftSide.Controls.Add(this.but_Weather);
             this.panel_LeftSide.Controls.Add(this.but_First);
             this.panel_LeftSide.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_LeftSide.Location = new System.Drawing.Point(0, 0);
@@ -52,18 +53,19 @@
             this.panel_LeftSide.Size = new System.Drawing.Size(205, 580);
             this.panel_LeftSide.TabIndex = 0;
             // 
-            // button1
+            // but_Weather
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(0, 120);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(205, 61);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Шлюха";
-            this.button1.UseVisualStyleBackColor = true;
+            this.but_Weather.FlatAppearance.BorderSize = 0;
+            this.but_Weather.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but_Weather.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.but_Weather.ForeColor = System.Drawing.SystemColors.Control;
+            this.but_Weather.Location = new System.Drawing.Point(0, 111);
+            this.but_Weather.Name = "but_Weather";
+            this.but_Weather.Size = new System.Drawing.Size(205, 61);
+            this.but_Weather.TabIndex = 1;
+            this.but_Weather.Text = "Weather";
+            this.but_Weather.UseVisualStyleBackColor = true;
+            this.but_Weather.Click += new System.EventHandler(this.but_Weather_Click);
             // 
             // but_First
             // 
@@ -117,7 +119,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel1.Controls.Add(this.firstControlUser1);
+            this.panel1.Controls.Add(this.weatherControlUser);
+            this.panel1.Controls.Add(this.firstControlUser);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel1.Location = new System.Drawing.Point(205, 53);
@@ -125,15 +128,25 @@
             this.panel1.Size = new System.Drawing.Size(751, 527);
             this.panel1.TabIndex = 3;
             // 
-            // firstControlUser1
+            // weatherControlUser
             // 
-            this.firstControlUser1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.firstControlUser1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.firstControlUser1.Location = new System.Drawing.Point(0, 0);
-            this.firstControlUser1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.firstControlUser1.Name = "firstControlUser1";
-            this.firstControlUser1.Size = new System.Drawing.Size(751, 527);
-            this.firstControlUser1.TabIndex = 2;
+            this.weatherControlUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.weatherControlUser.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.weatherControlUser.Location = new System.Drawing.Point(0, 0);
+            this.weatherControlUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.weatherControlUser.Name = "weatherControlUser";
+            this.weatherControlUser.Size = new System.Drawing.Size(751, 527);
+            this.weatherControlUser.TabIndex = 3;
+            // 
+            // firstControlUser
+            // 
+            this.firstControlUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.firstControlUser.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.firstControlUser.Location = new System.Drawing.Point(0, 0);
+            this.firstControlUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.firstControlUser.Name = "firstControlUser";
+            this.firstControlUser.Size = new System.Drawing.Size(751, 527);
+            this.firstControlUser.TabIndex = 2;
             // 
             // SFD_Main
             // 
@@ -165,8 +178,9 @@
         private System.Windows.Forms.Button but_First;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label_CloseWindow;
-        private Forms.firstControlUser firstControlUser1;
-        private System.Windows.Forms.Button button1;
+        private Forms.firstControlUser firstControlUser;
+        private System.Windows.Forms.Button but_Weather;
+        private Forms.WeatherControlUser weatherControlUser;
     }
 }
 

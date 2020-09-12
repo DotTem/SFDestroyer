@@ -9,13 +9,14 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using System.Globalization;
-
-
+using System.Threading;
+using System.Drawing.Text;
 
 namespace SFDestroyer.Forms
 {
     public partial class TableForm : Form
     {
+        
 
         #region Moving
         //coords of nouse
@@ -33,7 +34,7 @@ namespace SFDestroyer.Forms
             if (MouseDown)
             {
                 //set variables = panel center
-                mouseX = MousePosition.X - SFD_Main.ActiveForm.Size.Width / 2;
+                mouseX = MousePosition.X - ActiveForm.Size.Width / 2;
                 mouseY = MousePosition.Y - panel_Upper.Size.Height / 2;
                 //set window on variables coords
                 this.SetDesktopLocation(mouseX, mouseY);
@@ -51,32 +52,55 @@ namespace SFDestroyer.Forms
         //creating lists for files and directories
         private List<string> allFiles = new List<string>();
         private List<string> allDirs = new List<string>();
+        //Timer
+        private int timerSeconds = 0;
 
         public TableForm()
         {
-
+            
         }
 
         public TableForm(string path, DateTimePicker dateTimePicker1, DateTimePicker dateTimePicker2)
         {
             InitializeComponent();
-            Scanner(path);
 
-            foreach(string filetemp in tempFiles)
-            {
-                allFiles.Add(filetemp);
-            }
+            txtBox_Console.Text += ("Started scanning...");
 
-            foreach(string files in allFiles)
+            timeDoing.Enabled = true;
+            timeDoing.Start();
+
+            ScannerAsync();
+
+            async void ScannerAsync()
             {
-                list_NT.Items.Add(Path.GetFileName(files)).SubItems.Add(Path.GetExtension(files));
+                await Task.Run(() => Scanner(path));
+
+                txtBox_Console.Text += ("\r\nEnded scanning. Starting visualization...");
+                
+                //Adding files to List<>
+                foreach (string filetemp in tempFiles)
+                {
+                    allFiles.Add(filetemp);
+                }
+                //Adding file names to listBox
+                foreach (string files in allFiles)
+                {
+                    list_NT.Items.Add(Path.GetFileName(files)).SubItems.Add(Path.GetExtension(files));
+                }
+                //Adding dir names to listbox
+                foreach(string dirs in allDirs)
+                {
+                    lstBox_Dirs.Items.Add(Path.GetFileName(dirs));
+                }
+
+                timeDoing.Stop();
+
+                txtBox_Console.Text += ("\r\nEnded visualization. Done!");
             }
-            
             void Scanner(string mainPath)
             {
                 //array = files and subdirs in current directory [path]
                 string[] files_path = Directory.GetFileSystemEntries(mainPath);
-                int file_count = 0;
 
                 try
                 {
@@ -90,7 +114,6 @@ namespace SFDestroyer.Forms
                             {
                                 //add file path to list<>
                                 tempFiles.Add(file);
-                                file_count++;
                             }
                         }
                         //if dir
@@ -113,12 +136,11 @@ namespace SFDestroyer.Forms
                                 }
                                 //add dir path to list<>
                                 allDirs.Add(file);
-                                //add dir name to listbox
-                                lstBox_Dirs.Items.Add(Path.GetFileName(file));
                                 //Clearing list of temp files
                                 tempFiles.Clear();
                             }
-                            else if(tempFiles.Count <= 5 && tempFiles.Count != 0)
+                            //Adding files in lst_NT if their count <= 5
+                            if(tempFiles.Count <= 5 && tempFiles.Count != 0)
                             {
                                 foreach(string name in tempFiles)
                                 {
@@ -126,17 +148,11 @@ namespace SFDestroyer.Forms
                                 }
                                 tempFiles.Clear();
                             }
-                            else if(tempFiles.Count >= 5 || tempDirs.Count >= 5)
-                            {
-                                break;
-                            }
+
                         }
                     }
                 }
-                catch (System.UnauthorizedAccessException)
-                {
-
-                }
+                catch (Exception) { }
             }
         }
 
@@ -146,6 +162,7 @@ namespace SFDestroyer.Forms
             Close();
         }
 
+        //Double click on file
         private void list_NT_DoubleClick(object sender, EventArgs e)
         {
             //Return selected index
@@ -186,6 +203,13 @@ namespace SFDestroyer.Forms
             {
                 list_NT.Items.Add(Path.GetFileName(file)).SubItems.Add(Path.GetExtension(file));
             }
+        }
+
+        private void timeDoing_Tick(object sender, EventArgs e)
+        {
+            timerSeconds++;
+            TimeSpan span = TimeSpan.FromMinutes(timerSeconds);
+            label_Timer.Text = span.ToString(@"hh\:mm");
         }
     }
 }

@@ -34,13 +34,10 @@
             this.label_To = new System.Windows.Forms.Label();
             this.txtB_Path = new System.Windows.Forms.TextBox();
             this.label_Filters = new System.Windows.Forms.Label();
+            this.label_Path = new System.Windows.Forms.Label();
             this.but_SelectPath = new SFDestroyer.Classes.RoundButton();
             this.but_Do_1 = new SFDestroyer.Classes.RoundButton();
-            this.label_Path = new System.Windows.Forms.Label();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.lstBox_extensions = new System.Windows.Forms.CheckedListBox();
-            this.statusStrip1.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -111,6 +108,19 @@
             this.label_Filters.TabIndex = 9;
             this.label_Filters.Text = "Filters:";
             // 
+            // label_Path
+            // 
+            this.label_Path.AutoSize = true;
+            this.label_Path.BackColor = System.Drawing.Color.Transparent;
+            this.label_Path.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_Path.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.label_Path.Location = new System.Drawing.Point(12, 96);
+            this.label_Path.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_Path.Name = "label_Path";
+            this.label_Path.Size = new System.Drawing.Size(47, 17);
+            this.label_Path.TabIndex = 12;
+            this.label_Path.Text = "Path:";
+            // 
             // but_SelectPath
             // 
             this.but_SelectPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
@@ -124,7 +134,7 @@
             this.but_SelectPath.ButtonPressedForeColor = System.Drawing.Color.Black;
             this.but_SelectPath.ButtonRoundRadius = 15;
             this.but_SelectPath.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.but_SelectPath.Location = new System.Drawing.Point(669, 115);
+            this.but_SelectPath.Location = new System.Drawing.Point(669, 119);
             this.but_SelectPath.Name = "but_SelectPath";
             this.but_SelectPath.Size = new System.Drawing.Size(79, 27);
             this.but_SelectPath.TabIndex = 11;
@@ -151,63 +161,22 @@
             this.but_Do_1.Text = "Do";
             this.but_Do_1.Click += new System.EventHandler(this.but_Do_1_Click);
             // 
-            // label_Path
+            // label1
             // 
-            this.label_Path.AutoSize = true;
-            this.label_Path.BackColor = System.Drawing.Color.Transparent;
-            this.label_Path.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_Path.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.label_Path.Location = new System.Drawing.Point(12, 96);
-            this.label_Path.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_Path.Name = "label_Path";
-            this.label_Path.Size = new System.Drawing.Size(47, 17);
-            this.label_Path.TabIndex = 12;
-            this.label_Path.Text = "Path:";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripProgressBar});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 505);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(751, 22);
-            this.statusStrip1.TabIndex = 13;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripProgressBar
-            // 
-            this.toolStripProgressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.toolStripProgressBar.Name = "toolStripProgressBar";
-            this.toolStripProgressBar.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
-            this.toolStripProgressBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStripProgressBar.Size = new System.Drawing.Size(104, 16);
-            this.toolStripProgressBar.Value = 30;
-            // 
-            // lstBox_extensions
-            // 
-            this.lstBox_extensions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.lstBox_extensions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstBox_extensions.CheckOnClick = true;
-            this.lstBox_extensions.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lstBox_extensions.FormattingEnabled = true;
-            this.lstBox_extensions.Items.AddRange(new object[] {
-            "Images",
-            "Music",
-            "Videos",
-            "Other"});
-            this.lstBox_extensions.Location = new System.Drawing.Point(64, 285);
-            this.lstBox_extensions.Name = "lstBox_extensions";
-            this.lstBox_extensions.Size = new System.Drawing.Size(120, 96);
-            this.lstBox_extensions.TabIndex = 14;
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(72, 266);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 16);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Coming Soon...";
             // 
             // firstControlUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.Controls.Add(this.lstBox_extensions);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label_Path);
             this.Controls.Add(this.but_SelectPath);
             this.Controls.Add(this.but_Do_1);
@@ -221,8 +190,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "firstControlUser";
             this.Size = new System.Drawing.Size(751, 527);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,8 +206,6 @@
         private Classes.RoundButton but_Do_1;
         private Classes.RoundButton but_SelectPath;
         private System.Windows.Forms.Label label_Path;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
-        private System.Windows.Forms.CheckedListBox lstBox_extensions;
+        private System.Windows.Forms.Label label1;
     }
 }

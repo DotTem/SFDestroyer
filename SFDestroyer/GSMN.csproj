@@ -7,7 +7,7 @@
     <ProjectGuid>{AB467847-BF2E-43AC-ABE6-3EEAA2AECAE4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SFDestroyer</RootNamespace>
-    <AssemblyName>SFDestroyer</AssemblyName>
+    <AssemblyName>GSMN</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -68,6 +68,12 @@
     <Compile Include="Forms\TableForm.Designer.cs">
       <DependentUpon>TableForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\WeatherControlUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\WeatherControlUser.Designer.cs">
+      <DependentUpon>WeatherControlUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\FirstControlUser.resx">
       <DependentUpon>FirstControlUser.cs</DependentUpon>
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TableForm.resx">
       <DependentUpon>TableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WeatherControlUser.resx">
+      <DependentUpon>WeatherControlUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

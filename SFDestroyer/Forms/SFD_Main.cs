@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using SFDestroyer.Forms;
 
 namespace SFDestroyer
 {
     public partial class SFD_Main : Form
     {
+        Color mainColor = Color.FromArgb(64, 64, 64);
+        Color cuColor = Color.FromArgb(50, 50, 50);
         
-
         #region Moving
         //coords of mouse
         private int mouseX = 0;
@@ -30,8 +32,9 @@ namespace SFDestroyer
         {
             if(MouseDown)
             {
+
                 //set variables = panel center
-                mouseX = MousePosition.X - SFD_Main.ActiveForm.Size.Width / 2;
+                mouseX = MousePosition.X - ActiveForm.Width / 2;
                 mouseY = MousePosition.Y - panel_Upper.Size.Height / 2;
                 //set window on variables coords
                 this.SetDesktopLocation(mouseX, mouseY);
@@ -47,28 +50,26 @@ namespace SFDestroyer
         public SFD_Main()
         {
             InitializeComponent();
-            
-            firstControlUser1.BringToFront();
+            but_First_Click(Owner, null);
         }
 
         private void but_First_Click(object sender, EventArgs e)
         {
-            firstControlUser1.BringToFront();
-
-       /*     //if file date later than dateTimePicker date
-            if (Convert.ToInt64(File.GetLastAccessTime("F:/Visual Studio/Source/Repos/SortingInFolder/Personal.sln").Ticks) > Convert.ToInt64(dateTimePicker1.Value.Ticks))
-            {
-                label1.Text = "YAAAAA"; 
-            }
-            else
-            {
-                label1.Text = "No";
-            }*/
+            firstControlUser.BringToFront();
+            but_First.BackColor = cuColor;
+            but_Weather.BackColor = mainColor;
         }
 
         private void label_CloseWindow_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void but_Weather_Click(object sender, EventArgs e)
+        {
+            weatherControlUser.BringToFront();
+            but_First.BackColor = mainColor;
+            but_Weather.BackColor = cuColor;
         }
     }
 }
