@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SFDestroyer.Properties
+namespace GSMN.Properties
 {
 
 

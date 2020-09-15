@@ -38,6 +38,7 @@
             this.but_SelectPath = new SFDestroyer.Classes.RoundButton();
             this.but_Do_1 = new SFDestroyer.Classes.RoundButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmvBox_Filter = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -171,11 +172,22 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Coming Soon...";
             // 
+            // cmvBox_Filter
+            // 
+            this.cmvBox_Filter.FormattingEnabled = true;
+            this.cmvBox_Filter.Items.AddRange(new object[] {
+            "text"});
+            this.cmvBox_Filter.Location = new System.Drawing.Point(64, 303);
+            this.cmvBox_Filter.Name = "cmvBox_Filter";
+            this.cmvBox_Filter.Size = new System.Drawing.Size(121, 24);
+            this.cmvBox_Filter.TabIndex = 14;
+            // 
             // firstControlUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.Controls.Add(this.cmvBox_Filter);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label_Path);
             this.Controls.Add(this.but_SelectPath);
@@ -207,5 +219,6 @@
         private Classes.RoundButton but_SelectPath;
         private System.Windows.Forms.Label label_Path;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmvBox_Filter;
     }
 }

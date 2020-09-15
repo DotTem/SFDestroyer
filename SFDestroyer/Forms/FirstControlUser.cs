@@ -13,6 +13,9 @@ namespace SFDestroyer.Forms
 {
     public partial class firstControlUser : UserControl
     {
+        private string[] filters = {".txt", ".pdf" };
+        public ComboBox combo { get; set; }
+
         bool isSelectedPath = false;
 
         public firstControlUser()

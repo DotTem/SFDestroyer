@@ -16,7 +16,6 @@ namespace SFDestroyer.Forms
 {
     public partial class TableForm : Form
     {
-        
 
         #region Moving
         //coords of nouse
@@ -46,6 +45,8 @@ namespace SFDestroyer.Forms
             MouseDown = false;
         }
         #endregion
+
+
         //creating list for temporary files
         private List<string> tempFiles = new List<string>();
         private List<string> tempDirs = new List<string>();
@@ -152,7 +153,10 @@ namespace SFDestroyer.Forms
                         }
                     }
                 }
-                catch (Exception) { }
+                catch (Exception) 
+                {
+                    
+                }
             }
         }
 
@@ -211,5 +215,6 @@ namespace SFDestroyer.Forms
             TimeSpan span = TimeSpan.FromMinutes(timerSeconds);
             label_Timer.Text = span.ToString(@"hh\:mm");
         }
+
     }
 }

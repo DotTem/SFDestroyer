@@ -37,6 +37,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.weatherControlUser = new SFDestroyer.Forms.WeatherControlUser();
             this.firstControlUser = new SFDestroyer.Forms.firstControlUser();
+            this.but_News = new System.Windows.Forms.Button();
             this.panel_LeftSide.SuspendLayout();
             this.panel_Upper.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -45,6 +46,7 @@
             // panel_LeftSide
             // 
             this.panel_LeftSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel_LeftSide.Controls.Add(this.but_News);
             this.panel_LeftSide.Controls.Add(this.but_Weather);
             this.panel_LeftSide.Controls.Add(this.but_First);
             this.panel_LeftSide.Dock = System.Windows.Forms.DockStyle.Left;
@@ -148,6 +150,19 @@
             this.firstControlUser.Size = new System.Drawing.Size(751, 527);
             this.firstControlUser.TabIndex = 2;
             // 
+            // but_News
+            // 
+            this.but_News.FlatAppearance.BorderSize = 0;
+            this.but_News.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but_News.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.but_News.ForeColor = System.Drawing.SystemColors.Control;
+            this.but_News.Location = new System.Drawing.Point(0, 169);
+            this.but_News.Name = "but_News";
+            this.but_News.Size = new System.Drawing.Size(205, 61);
+            this.but_News.TabIndex = 2;
+            this.but_News.Text = "News";
+            this.but_News.UseVisualStyleBackColor = true;
+            // 
             // SFD_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,6 +196,7 @@
         private Forms.firstControlUser firstControlUser;
         private System.Windows.Forms.Button but_Weather;
         private Forms.WeatherControlUser weatherControlUser;
+        private System.Windows.Forms.Button but_News;
     }
 }
 
