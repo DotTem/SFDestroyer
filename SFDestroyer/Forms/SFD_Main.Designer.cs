@@ -28,16 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel_LeftSide = new System.Windows.Forms.Panel();
+            this.label_curTime = new System.Windows.Forms.Label();
+            this.but_Settings = new System.Windows.Forms.Button();
+            this.but_News = new System.Windows.Forms.Button();
             this.but_Weather = new System.Windows.Forms.Button();
             this.but_First = new System.Windows.Forms.Button();
             this.panel_Upside = new System.Windows.Forms.Panel();
             this.panel_Upper = new System.Windows.Forms.Panel();
             this.label_CloseWindow = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.settingsControlUser = new SFDestroyer.Forms.SettingsControlUser();
             this.weatherControlUser = new SFDestroyer.Forms.WeatherControlUser();
             this.firstControlUser = new SFDestroyer.Forms.firstControlUser();
-            this.but_News = new System.Windows.Forms.Button();
+            this.timer_curTime = new System.Windows.Forms.Timer(this.components);
             this.panel_LeftSide.SuspendLayout();
             this.panel_Upper.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -46,6 +51,8 @@
             // panel_LeftSide
             // 
             this.panel_LeftSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel_LeftSide.Controls.Add(this.label_curTime);
+            this.panel_LeftSide.Controls.Add(this.but_Settings);
             this.panel_LeftSide.Controls.Add(this.but_News);
             this.panel_LeftSide.Controls.Add(this.but_Weather);
             this.panel_LeftSide.Controls.Add(this.but_First);
@@ -54,6 +61,44 @@
             this.panel_LeftSide.Name = "panel_LeftSide";
             this.panel_LeftSide.Size = new System.Drawing.Size(205, 580);
             this.panel_LeftSide.TabIndex = 0;
+            // 
+            // label_curTime
+            // 
+            this.label_curTime.AutoSize = true;
+            this.label_curTime.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_curTime.ForeColor = System.Drawing.SystemColors.Control;
+            this.label_curTime.Location = new System.Drawing.Point(3, 555);
+            this.label_curTime.Name = "label_curTime";
+            this.label_curTime.Size = new System.Drawing.Size(90, 21);
+            this.label_curTime.TabIndex = 4;
+            this.label_curTime.Text = "Date Time";
+            // 
+            // but_Settings
+            // 
+            this.but_Settings.BackgroundImage = global::SFDestroyer.Properties.Resources.settings_48px;
+            this.but_Settings.FlatAppearance.BorderSize = 0;
+            this.but_Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but_Settings.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.but_Settings.ForeColor = System.Drawing.SystemColors.Control;
+            this.but_Settings.Location = new System.Drawing.Point(173, 548);
+            this.but_Settings.Name = "but_Settings";
+            this.but_Settings.Size = new System.Drawing.Size(32, 32);
+            this.but_Settings.TabIndex = 3;
+            this.but_Settings.UseVisualStyleBackColor = true;
+            this.but_Settings.Click += new System.EventHandler(this.but_Settings_Click);
+            // 
+            // but_News
+            // 
+            this.but_News.FlatAppearance.BorderSize = 0;
+            this.but_News.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but_News.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.but_News.ForeColor = System.Drawing.SystemColors.Control;
+            this.but_News.Location = new System.Drawing.Point(0, 169);
+            this.but_News.Name = "but_News";
+            this.but_News.Size = new System.Drawing.Size(205, 61);
+            this.but_News.TabIndex = 2;
+            this.but_News.Text = "News";
+            this.but_News.UseVisualStyleBackColor = true;
             // 
             // but_Weather
             // 
@@ -121,6 +166,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.panel1.Controls.Add(this.settingsControlUser);
             this.panel1.Controls.Add(this.weatherControlUser);
             this.panel1.Controls.Add(this.firstControlUser);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -129,6 +175,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(751, 527);
             this.panel1.TabIndex = 3;
+            // 
+            // settingsControlUser
+            // 
+            this.settingsControlUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.settingsControlUser.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.settingsControlUser.Location = new System.Drawing.Point(0, 0);
+            this.settingsControlUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.settingsControlUser.Name = "settingsControlUser";
+            this.settingsControlUser.Size = new System.Drawing.Size(751, 527);
+            this.settingsControlUser.TabIndex = 4;
             // 
             // weatherControlUser
             // 
@@ -150,18 +206,9 @@
             this.firstControlUser.Size = new System.Drawing.Size(751, 527);
             this.firstControlUser.TabIndex = 2;
             // 
-            // but_News
+            // timer_curTime
             // 
-            this.but_News.FlatAppearance.BorderSize = 0;
-            this.but_News.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.but_News.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.but_News.ForeColor = System.Drawing.SystemColors.Control;
-            this.but_News.Location = new System.Drawing.Point(0, 169);
-            this.but_News.Name = "but_News";
-            this.but_News.Size = new System.Drawing.Size(205, 61);
-            this.but_News.TabIndex = 2;
-            this.but_News.Text = "News";
-            this.but_News.UseVisualStyleBackColor = true;
+            this.timer_curTime.Tick += new System.EventHandler(this.timer_curTime_Tick);
             // 
             // SFD_Main
             // 
@@ -178,6 +225,7 @@
             this.Name = "SFD_Main";
             this.Text = "SFDestroyer";
             this.panel_LeftSide.ResumeLayout(false);
+            this.panel_LeftSide.PerformLayout();
             this.panel_Upper.ResumeLayout(false);
             this.panel_Upper.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -197,6 +245,10 @@
         private System.Windows.Forms.Button but_Weather;
         private Forms.WeatherControlUser weatherControlUser;
         private System.Windows.Forms.Button but_News;
+        private System.Windows.Forms.Timer timer_curTime;
+        private System.Windows.Forms.Button but_Settings;
+        private System.Windows.Forms.Label label_curTime;
+        private Forms.SettingsControlUser settingsControlUser;
     }
 }
 

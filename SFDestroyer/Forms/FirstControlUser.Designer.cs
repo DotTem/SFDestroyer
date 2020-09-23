@@ -155,7 +155,7 @@
             this.but_Do_1.ButtonPressedForeColor = System.Drawing.Color.Black;
             this.but_Do_1.ButtonRoundRadius = 15;
             this.but_Do_1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.but_Do_1.Location = new System.Drawing.Point(669, 475);
+            this.but_Do_1.Location = new System.Drawing.Point(669, 473);
             this.but_Do_1.Name = "but_Do_1";
             this.but_Do_1.Size = new System.Drawing.Size(79, 27);
             this.but_Do_1.TabIndex = 10;
@@ -177,7 +177,7 @@
             this.cmvBox_Filter.FormattingEnabled = true;
             this.cmvBox_Filter.Items.AddRange(new object[] {
             "text"});
-            this.cmvBox_Filter.Location = new System.Drawing.Point(64, 303);
+            this.cmvBox_Filter.Location = new System.Drawing.Point(64, 302);
             this.cmvBox_Filter.Name = "cmvBox_Filter";
             this.cmvBox_Filter.Size = new System.Drawing.Size(121, 24);
             this.cmvBox_Filter.TabIndex = 14;

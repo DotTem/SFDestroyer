@@ -14,9 +14,7 @@ namespace SFDestroyer
 {
     public partial class SFD_Main : Form
     {
-        Color mainColor = Color.FromArgb(64, 64, 64);
-        Color cuColor = Color.FromArgb(50, 50, 50);
-        
+
         #region Moving
         //coords of mouse
         private int mouseX = 0;
@@ -50,14 +48,21 @@ namespace SFDestroyer
         public SFD_Main()
         {
             InitializeComponent();
+            //timer for date\time label
+            timer_curTime.Interval = 500;
+            timer_curTime.Enabled = true;
+            timer_curTime.Start();
+
             but_First_Click(Owner, null);
+
         }
 
         private void but_First_Click(object sender, EventArgs e)
         {
             firstControlUser.BringToFront();
-            but_First.BackColor = cuColor;
-            but_Weather.BackColor = mainColor;
+            but_First.BackColor = Color.FromArgb(50, 50, 50);
+            but_Weather.BackColor = Color.FromArgb(64, 64, 64);
+            but_Settings.BackColor = Color.FromArgb(64, 64, 64);
         }
 
         private void label_CloseWindow_Click(object sender, EventArgs e)
@@ -68,8 +73,21 @@ namespace SFDestroyer
         private void but_Weather_Click(object sender, EventArgs e)
         {
             weatherControlUser.BringToFront();
-            but_First.BackColor = mainColor;
-            but_Weather.BackColor = cuColor;
+            but_First.BackColor = Color.FromArgb(64, 64, 64);
+            but_Weather.BackColor = Color.FromArgb(50, 50, 50);
+        }
+
+        private void timer_curTime_Tick(object sender, EventArgs e)
+        {
+            label_curTime.Text = DateTime.Now.ToString();
+        }
+
+        private void but_Settings_Click(object sender, EventArgs e)
+        {
+            but_First.BackColor = Color.FromArgb(64, 64, 64);
+            but_Weather.BackColor = Color.FromArgb(64,64,64);
+            but_Settings.BackColor = Color.FromArgb(50, 50, 50);
+            settingsControlUser.BringToFront();
         }
     }
 }
