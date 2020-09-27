@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SFDestroyer.Classes;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Net;
@@ -14,6 +15,7 @@ namespace SFDestroyer.Forms
         {
             InitializeComponent();
             SetRoundedShape(panel_Temps, 30);
+            SetRoundedShape(panel_forecast, 30);
             #region first try
             /*            //parsing
                         using (WebClient apiInteracion = new WebClient { Encoding = Encoding.UTF8 })
@@ -39,42 +41,34 @@ namespace SFDestroyer.Forms
              */
             #endregion
 
-            apiInteraction("Moscow");
+            panel_Temps.BringToFront();
+            apiInteraction(Properties.Settings.Default.CitySetDefault);
         }
 
-        private void txtBox_City_KeyDown(object sender, KeyEventArgs e)
+        #region Buttons
+        private void but_curTemp_Click(object sender, System.EventArgs e)
         {
-            string wrotenCity = txtBox_City.Text;
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                try
-                {
-                    apiInteraction(wrotenCity);
-                }
-                catch(WebException) 
-                {
-                    MessageBox.Show("No city with " + '"' + wrotenCity + '"' + " name");
-                }
-            }
-
+            panel_Temps.BringToFront();
+            but_curTemp.BackColor = Color.FromArgb(55, 55, 55);
+            but_Forecast.BackColor = Color.FromArgb(50, 50, 50);
         }
 
-        //For rounded corners
-        static void SetRoundedShape(Control control, int radius)
+        private void but_Forecast_Click(object sender, System.EventArgs e)
         {
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddLine(radius, 0, control.Width - radius, 0);
-            path.AddArc(control.Width - radius, 0, radius, radius, 270, 90);
-            path.AddLine(control.Width, radius, control.Width, control.Height - radius);
-            path.AddArc(control.Width - radius, control.Height - radius, radius, radius, 0, 90);
-            path.AddLine(control.Width - radius, control.Height, radius, control.Height);
-            path.AddArc(0, control.Height - radius, radius, radius, 90, 90);
-            path.AddLine(0, control.Height - radius, 0, radius);
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            control.Region = new Region(path);
+            panel_forecast.BringToFront();
+            but_curTemp.BackColor = Color.FromArgb(50, 50, 50);
+            but_Forecast.BackColor = Color.FromArgb(55, 55, 55);
         }
 
+
+        #endregion
+
+        #region Main Metods
+        /// <summary>
+        /// Internet part
+        /// </summary>
+        /// <param name="city"> City you need</param>
+        /// api.openweathermap.org/data/2.5/forecast/daily?q=Moscow&cnt=5&appid=0ed1773f3181837e871a4af846d38ab1
         void apiInteraction (string city)
         {
             using (WebClient apiLoading = new WebClient { Encoding = Encoding.UTF8 })
@@ -99,6 +93,7 @@ namespace SFDestroyer.Forms
                 label_curTemperature.Text = ((int)weatherInfo.Main.Temp + "°").ToString();
                 label_curWeather.Text = weatherInfo.Weather[0].Main;
                 label_curCity.Text = ("Weather: " + weatherInfo.Name);
+                label_Feel.Text = String.Format("Feel: {0}°", (int)weatherInfo.Main.Feels_like);
                 //Images
                 using (Stream stream = apiLoading.OpenRead("http://openweathermap.org/img/wn/" + weatherInfo.Weather[0].Icon + "@4x.png"))
                 {
@@ -107,5 +102,52 @@ namespace SFDestroyer.Forms
                 #endregion
             }
         }
+
+        /// <summary>
+        /// Main Method with correct city input
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBox_City_KeyDown(object sender, KeyEventArgs e)
+        {
+            string wrotenCity = txtBox_City.Text;
+            if (e.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(wrotenCity))
+            {
+                e.SuppressKeyPress = true;
+                try
+                {
+                    apiInteraction(wrotenCity);
+                }
+                catch (WebException)
+                {
+                    MessageBox.Show("No city with " + '"' + wrotenCity + '"' + " name");
+                }
+            }
+
+        }
+
+        #endregion
+
+
+        //For rounded corners
+        static void SetRoundedShape(Control control, int radius)
+        {
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+            path.AddLine(radius, 0, control.Width - radius, 0);
+            path.AddArc(control.Width - radius, 0, radius, radius, 270, 90);
+            path.AddLine(control.Width, radius, control.Width, control.Height - radius);
+            path.AddArc(control.Width - radius, control.Height - radius, radius, radius, 0, 90);
+            path.AddLine(control.Width - radius, control.Height, radius, control.Height);
+            path.AddArc(0, control.Height - radius, radius, radius, 90, 90);
+            path.AddLine(0, control.Height - radius, 0, radius);
+            path.AddArc(0, 0, radius, radius, 180, 90);
+            control.Region = new Region(path);
+        }
+
+
+
+
+
+
     }
 }

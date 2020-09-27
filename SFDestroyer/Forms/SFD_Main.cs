@@ -67,6 +67,7 @@ namespace SFDestroyer
 
         private void label_CloseWindow_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.Save();
             Close();
         }
 
@@ -75,6 +76,7 @@ namespace SFDestroyer
             weatherControlUser.BringToFront();
             but_First.BackColor = Color.FromArgb(64, 64, 64);
             but_Weather.BackColor = Color.FromArgb(50, 50, 50);
+            but_Settings.BackColor = Color.FromArgb(64, 64, 64);
         }
 
         private void timer_curTime_Tick(object sender, EventArgs e)

@@ -35,10 +35,10 @@
             this.txtB_Path = new System.Windows.Forms.TextBox();
             this.label_Filters = new System.Windows.Forms.Label();
             this.label_Path = new System.Windows.Forms.Label();
-            this.but_SelectPath = new SFDestroyer.Classes.RoundButton();
-            this.but_Do_1 = new SFDestroyer.Classes.RoundButton();
             this.label1 = new System.Windows.Forms.Label();
             this.cmvBox_Filter = new System.Windows.Forms.ComboBox();
+            this.but_SelectPath = new SFDestroyer.Classes.RoundButton();
+            this.but_Do_1 = new SFDestroyer.Classes.RoundButton();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -122,6 +122,28 @@
             this.label_Path.TabIndex = 12;
             this.label_Path.Text = "Path:";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(72, 266);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 16);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Coming Soon...";
+            // 
+            // cmvBox_Filter
+            // 
+            this.cmvBox_Filter.FormattingEnabled = true;
+            this.cmvBox_Filter.Items.AddRange(new object[] {
+            "Text",
+            "Video",
+            "Image"});
+            this.cmvBox_Filter.Location = new System.Drawing.Point(64, 302);
+            this.cmvBox_Filter.Name = "cmvBox_Filter";
+            this.cmvBox_Filter.Size = new System.Drawing.Size(121, 24);
+            this.cmvBox_Filter.TabIndex = 14;
+            // 
             // but_SelectPath
             // 
             this.but_SelectPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
@@ -161,26 +183,6 @@
             this.but_Do_1.TabIndex = 10;
             this.but_Do_1.Text = "Do";
             this.but_Do_1.Click += new System.EventHandler(this.but_Do_1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(72, 266);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 16);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Coming Soon...";
-            // 
-            // cmvBox_Filter
-            // 
-            this.cmvBox_Filter.FormattingEnabled = true;
-            this.cmvBox_Filter.Items.AddRange(new object[] {
-            "text"});
-            this.cmvBox_Filter.Location = new System.Drawing.Point(64, 302);
-            this.cmvBox_Filter.Name = "cmvBox_Filter";
-            this.cmvBox_Filter.Size = new System.Drawing.Size(121, 24);
-            this.cmvBox_Filter.TabIndex = 14;
             // 
             // firstControlUser
             // 

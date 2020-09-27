@@ -61,12 +61,12 @@ namespace SFDestroyer.Forms
             
         }
 
-        public TableForm(string path, DateTimePicker dateTimePicker1, DateTimePicker dateTimePicker2)
+        public TableForm(string path, DateTimePicker dateTimePicker1, DateTimePicker dateTimePicker2, string[] filter)
         {
             InitializeComponent();
 
             txtBox_Console.Text += ("Started scanning...");
-
+            //Start of Timer(Time passed)
             timeDoing.Enabled = true;
             timeDoing.Start();
 
@@ -81,12 +81,19 @@ namespace SFDestroyer.Forms
                 //Adding files to List<>
                 foreach (string filetemp in tempFiles)
                 {
-                    allFiles.Add(filetemp);
+                    
+                        allFiles.Add(filetemp);
                 }
                 //Adding file names to listBox
                 foreach (string files in allFiles)
                 {
-                    list_NT.Items.Add(Path.GetFileName(files)).SubItems.Add(Path.GetExtension(files));
+                    //if using filter
+                    if (filter.Length > 0 && (Path.GetExtension(files) == filter[0] || Path.GetExtension(files) == filter[1]))
+                        list_NT.Items.Add(Path.GetFileName(files)).SubItems.Add(Path.GetExtension(files));
+                    //if no filter
+                    else if (filter.Length == 0)
+                        list_NT.Items.Add(Path.GetFileName(files)).SubItems.Add(Path.GetExtension(files));
+
                 }
                 //Adding dir names to listbox
                 foreach(string dirs in allDirs)

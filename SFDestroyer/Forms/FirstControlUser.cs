@@ -13,7 +13,10 @@ namespace SFDestroyer.Forms
 {
     public partial class firstControlUser : UserControl
     {
-        private string[] filters = { ".txt", ".pdf" };
+        private string[] filterDefault = { }; 
+        private string[] filtersText = { ".txt", ".pdf" };
+        private string[] filterVideo = { ".mp4", ".avi" };
+        private string[] filterImage = { ".jpg", ".jpeg", ".png" };
 
         bool isSelectedPath = false;
 
@@ -39,8 +42,26 @@ namespace SFDestroyer.Forms
         {
             if(isSelectedPath)
             {
-                TableForm table = new TableForm(txtB_Path.Text, dateTimePicker1, dateTimePicker2);
-                table.Show();
+                switch(cmvBox_Filter.SelectedIndex)
+                {
+                    case 0:
+                        TableForm tableText = new TableForm(txtB_Path.Text, dateTimePicker1, dateTimePicker2, filtersText);
+                        tableText.Show();
+                        break;
+                    case 1:
+                        TableForm tableVideo = new TableForm(txtB_Path.Text, dateTimePicker1, dateTimePicker2, filterVideo);
+                        tableVideo.Show();
+                        break;
+                    case 2:
+                        TableForm tableImage = new TableForm(txtB_Path.Text, dateTimePicker1, dateTimePicker2, filterImage);
+                        tableImage.Show();
+                        break;
+                    case -1:
+                        TableForm tableDefault = new TableForm(txtB_Path.Text, dateTimePicker1, dateTimePicker2, filterDefault);
+                        tableDefault.Show();
+                        break;
+                        
+                }
             }
         }
     }

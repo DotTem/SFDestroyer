@@ -28,32 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label_defCity = new System.Windows.Forms.Label();
+            this.txtBox_citySet = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // label1
+            // label_defCity
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(20, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "City: ";
+            this.label_defCity.AutoSize = true;
+            this.label_defCity.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_defCity.ForeColor = System.Drawing.SystemColors.Control;
+            this.label_defCity.Location = new System.Drawing.Point(20, 27);
+            this.label_defCity.Name = "label_defCity";
+            this.label_defCity.Size = new System.Drawing.Size(107, 21);
+            this.label_defCity.TabIndex = 0;
+            this.label_defCity.Text = "Default City:";
             // 
-            // textBox1
+            // txtBox_citySet
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(75, 27);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 21);
-            this.textBox1.TabIndex = 1;
+            this.txtBox_citySet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBox_citySet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBox_citySet.Location = new System.Drawing.Point(133, 27);
+            this.txtBox_citySet.Multiline = true;
+            this.txtBox_citySet.Name = "txtBox_citySet";
+            this.txtBox_citySet.Size = new System.Drawing.Size(186, 21);
+            this.txtBox_citySet.TabIndex = 1;
+            this.txtBox_citySet.Enter += new System.EventHandler(this.txtBox_citySet_Enter);
+            this.txtBox_citySet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_citySet_KeyDown);
+            this.txtBox_citySet.Leave += new System.EventHandler(this.txtBox_citySet_Leave);
             // 
             // checkBox1
             // 
@@ -82,8 +85,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtBox_citySet);
+            this.Controls.Add(this.label_defCity);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "SettingsControlUser";
@@ -95,8 +98,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label_defCity;
+        private System.Windows.Forms.TextBox txtBox_citySet;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
     }
