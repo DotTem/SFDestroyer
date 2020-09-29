@@ -143,11 +143,5 @@ namespace SFDestroyer.Forms
             path.AddArc(0, 0, radius, radius, 180, 90);
             control.Region = new Region(path);
         }
-
-
-
-
-
-
     }
 }

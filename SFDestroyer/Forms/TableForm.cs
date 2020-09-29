@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Threading;
 using System.Drawing.Text;
+using System.Windows.Controls;
 
 namespace SFDestroyer.Forms
 {
@@ -56,11 +57,6 @@ namespace SFDestroyer.Forms
         //Timer
         private int timerSeconds = 0;
 
-        public TableForm()
-        {
-            
-        }
-
         public TableForm(string path, DateTimePicker dateTimePicker1, DateTimePicker dateTimePicker2, string[] filter)
         {
             InitializeComponent();
@@ -81,26 +77,146 @@ namespace SFDestroyer.Forms
                 //Adding files to List<>
                 foreach (string filetemp in tempFiles)
                 {
-                    
                         allFiles.Add(filetemp);
                 }
+
+                TreeNode rootNode = new TreeNode();
+                rootNode.Name = "Root";
+                rootNode.Text = "Root";
                 //Adding file names to listBox
                 foreach (string files in allFiles)
                 {
-                    //if using filter
-                    if (filter.Length > 0 && (Path.GetExtension(files) == filter[0] || Path.GetExtension(files) == filter[1]))
-                        list_NT.Items.Add(Path.GetFileName(files)).SubItems.Add(Path.GetExtension(files));
-                    //if no filter
-                    else if (filter.Length == 0)
-                        list_NT.Items.Add(Path.GetFileName(files)).SubItems.Add(Path.GetExtension(files));
+                    list_NT.Items.Add(Path.GetFileName(files)).SubItems.Add(Path.GetExtension(files));
 
+                    Korsh(treeOut, files);
                 }
                 //Adding dir names to listbox
                 foreach(string dirs in allDirs)
                 {
                     lstBox_Dirs.Items.Add(Path.GetFileName(dirs));
                 }
+                //Stopping 'Time passed'
+                timeDoing.Stop();
 
+
+
+                txtBox_Console.Text += ("\r\nEnded visualization. Done!");
+            }
+            void Scanner(string mainPath)
+            {
+                //array = files and subdirs in current directory [path]
+                string[] files_path = Directory.GetFileSystemEntries(mainPath);
+
+                try
+                {
+                    foreach (string file in files_path)
+                    {
+                        //if file
+                        if (File.Exists(file))
+                        {
+                            //checking date file last opened
+                            if (dateTimePicker1.Value.Ticks < Convert.ToInt64(File.GetLastWriteTime(file).Ticks) && Convert.ToInt64(File.GetLastWriteTime(file).Ticks) < dateTimePicker2.Value.Ticks)
+                            {
+                                for (int index = 0; index < filter.Length; index++)
+                                {
+                                    //filtration
+                                    if(Path.GetExtension(file) == filter[index])
+                                    {
+                                        tempFiles.Add(file);
+                                    }
+                                }
+                            }
+                        }
+                        //if dir
+                        else if (Directory.Exists(file))
+                        {
+                            Scanner(file);
+                            //Adding dirs names in listbox
+                            if (tempFiles.Count > 5)
+                            {
+                                int position = 0;
+
+                                // Find position of last "\"
+                                for (int counter = file.Length - 1; counter != 0; counter--)
+                                {
+                                    if (file[counter].ToString(CultureInfo.InvariantCulture) == "\\")
+                                    {
+                                        position = counter;
+                                        break;
+                                    }
+                                }
+                                //add dir path to list<>
+                                allDirs.Add(file);
+                                //Clearing list of temp files
+                                tempFiles.Clear();
+                            }
+                            //Adding files in lst_NT if their count <= 5
+                            if(tempFiles.Count <= 5 && tempFiles.Count != 0)
+                            {
+                                foreach(string name in tempFiles)
+                                {
+                                    allFiles.Add(name);
+                                }
+                                tempFiles.Clear();
+                            }
+
+                        }
+                    }
+                }
+                catch (Exception) 
+                {
+                    
+                }
+            }
+            void Korsh(System.Windows.Forms.TreeView tree, string curPath)
+            {
+
+                int ind = curPath.IndexOf("\\");
+                if (ind >= 0)
+                {
+                    //if (tree.Nodes[0].NextNode)
+                    tree.Nodes.Add(curPath.Substring(0, ind));
+                    Korsh(tree, curPath.Substring(ind + 1));
+                }
+                else
+                    tree.Nodes.Add(curPath);
+
+            }
+        }
+        public TableForm(string path, DateTimePicker dateTimePicker1, DateTimePicker dateTimePicker2)
+        {
+            InitializeComponent();
+
+            txtBox_Console.Text += ("Started scanning...");
+            //Start of Timer(Time passed)
+            timeDoing.Enabled = true;
+            timeDoing.Start();
+
+            ScannerAsync();
+
+            async void ScannerAsync()
+            {
+                await Task.Run(() => Scanner(path));
+
+                txtBox_Console.Text += ("\r\nEnded scanning. Starting visualization...");
+
+                //Adding files to List<>
+                foreach (string filetemp in tempFiles)
+                {
+
+                    allFiles.Add(filetemp);
+                }
+                //Adding file names to listBox
+                foreach (string files in allFiles)
+                {
+                        list_NT.Items.Add(Path.GetFileName(files)).SubItems.Add(Path.GetExtension(files));
+                }
+                //Adding dir names to listbox
+                foreach (string dirs in allDirs)
+                {
+                    lstBox_Dirs.Items.Add(Path.GetFileName(dirs));
+                }
+                //Stopping 'Time passed'
                 timeDoing.Stop();
 
                 txtBox_Console.Text += ("\r\nEnded visualization. Done!");
@@ -148,9 +264,9 @@ namespace SFDestroyer.Forms
                                 tempFiles.Clear();
                             }
                             //Adding files in lst_NT if their count <= 5
-                            if(tempFiles.Count <= 5 && tempFiles.Count != 0)
+                            if (tempFiles.Count <= 5 && tempFiles.Count != 0)
                             {
-                                foreach(string name in tempFiles)
+                                foreach (string name in tempFiles)
                                 {
                                     allFiles.Add(name);
                                 }
@@ -160,14 +276,18 @@ namespace SFDestroyer.Forms
                         }
                     }
                 }
-                catch (Exception) 
+                catch (Exception)
                 {
-                    
+
                 }
             }
         }
 
-
+        /// <summary>
+        /// Closing Window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void label_CloseWindow_Click(object sender, EventArgs e)
         {
             Close();

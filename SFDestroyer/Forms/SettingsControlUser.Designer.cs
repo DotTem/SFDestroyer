@@ -37,11 +37,11 @@
             // label_defCity
             // 
             this.label_defCity.AutoSize = true;
-            this.label_defCity.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_defCity.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_defCity.ForeColor = System.Drawing.SystemColors.Control;
             this.label_defCity.Location = new System.Drawing.Point(20, 27);
             this.label_defCity.Name = "label_defCity";
-            this.label_defCity.Size = new System.Drawing.Size(107, 21);
+            this.label_defCity.Size = new System.Drawing.Size(126, 19);
             this.label_defCity.TabIndex = 0;
             this.label_defCity.Text = "Default City:";
             // 
@@ -49,7 +49,8 @@
             // 
             this.txtBox_citySet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtBox_citySet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBox_citySet.Location = new System.Drawing.Point(133, 27);
+            this.txtBox_citySet.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtBox_citySet.Location = new System.Drawing.Point(152, 27);
             this.txtBox_citySet.Multiline = true;
             this.txtBox_citySet.Name = "txtBox_citySet";
             this.txtBox_citySet.Size = new System.Drawing.Size(186, 21);
@@ -61,9 +62,10 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(24, 71);
+            this.checkBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox1.Location = new System.Drawing.Point(24, 64);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(85, 20);
+            this.checkBox1.Size = new System.Drawing.Size(109, 23);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -71,9 +73,10 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(24, 108);
+            this.checkBox2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox2.Location = new System.Drawing.Point(24, 93);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(85, 20);
+            this.checkBox2.Size = new System.Drawing.Size(109, 23);
             this.checkBox2.TabIndex = 3;
             this.checkBox2.Text = "checkBox2";
             this.checkBox2.UseVisualStyleBackColor = true;

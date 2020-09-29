@@ -32,17 +32,17 @@
             this.panel_LeftSide = new System.Windows.Forms.Panel();
             this.label_curTime = new System.Windows.Forms.Label();
             this.but_Settings = new System.Windows.Forms.Button();
-            this.but_News = new System.Windows.Forms.Button();
+            this.but_FTP = new System.Windows.Forms.Button();
             this.but_Weather = new System.Windows.Forms.Button();
             this.but_First = new System.Windows.Forms.Button();
             this.panel_Upside = new System.Windows.Forms.Panel();
             this.panel_Upper = new System.Windows.Forms.Panel();
             this.label_CloseWindow = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.timer_curTime = new System.Windows.Forms.Timer(this.components);
             this.settingsControlUser = new SFDestroyer.Forms.SettingsControlUser();
             this.weatherControlUser = new SFDestroyer.Forms.WeatherControlUser();
             this.firstControlUser = new SFDestroyer.Forms.firstControlUser();
-            this.timer_curTime = new System.Windows.Forms.Timer(this.components);
             this.panel_LeftSide.SuspendLayout();
             this.panel_Upper.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -53,7 +53,7 @@
             this.panel_LeftSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel_LeftSide.Controls.Add(this.label_curTime);
             this.panel_LeftSide.Controls.Add(this.but_Settings);
-            this.panel_LeftSide.Controls.Add(this.but_News);
+            this.panel_LeftSide.Controls.Add(this.but_FTP);
             this.panel_LeftSide.Controls.Add(this.but_Weather);
             this.panel_LeftSide.Controls.Add(this.but_First);
             this.panel_LeftSide.Dock = System.Windows.Forms.DockStyle.Left;
@@ -65,11 +65,11 @@
             // label_curTime
             // 
             this.label_curTime.AutoSize = true;
-            this.label_curTime.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_curTime.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_curTime.ForeColor = System.Drawing.SystemColors.Control;
-            this.label_curTime.Location = new System.Drawing.Point(3, 555);
+            this.label_curTime.Location = new System.Drawing.Point(-4, 557);
             this.label_curTime.Name = "label_curTime";
-            this.label_curTime.Size = new System.Drawing.Size(90, 21);
+            this.label_curTime.Size = new System.Drawing.Size(90, 19);
             this.label_curTime.TabIndex = 4;
             this.label_curTime.Text = "Date Time";
             // 
@@ -87,24 +87,24 @@
             this.but_Settings.UseVisualStyleBackColor = true;
             this.but_Settings.Click += new System.EventHandler(this.but_Settings_Click);
             // 
-            // but_News
+            // but_FTP
             // 
-            this.but_News.FlatAppearance.BorderSize = 0;
-            this.but_News.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.but_News.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.but_News.ForeColor = System.Drawing.SystemColors.Control;
-            this.but_News.Location = new System.Drawing.Point(0, 169);
-            this.but_News.Name = "but_News";
-            this.but_News.Size = new System.Drawing.Size(205, 61);
-            this.but_News.TabIndex = 2;
-            this.but_News.Text = "News";
-            this.but_News.UseVisualStyleBackColor = true;
+            this.but_FTP.FlatAppearance.BorderSize = 0;
+            this.but_FTP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but_FTP.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.but_FTP.ForeColor = System.Drawing.SystemColors.Control;
+            this.but_FTP.Location = new System.Drawing.Point(0, 169);
+            this.but_FTP.Name = "but_FTP";
+            this.but_FTP.Size = new System.Drawing.Size(205, 61);
+            this.but_FTP.TabIndex = 2;
+            this.but_FTP.Text = "FTP-Client";
+            this.but_FTP.UseVisualStyleBackColor = true;
             // 
             // but_Weather
             // 
             this.but_Weather.FlatAppearance.BorderSize = 0;
             this.but_Weather.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.but_Weather.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.but_Weather.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.but_Weather.ForeColor = System.Drawing.SystemColors.Control;
             this.but_Weather.Location = new System.Drawing.Point(0, 111);
             this.but_Weather.Name = "but_Weather";
@@ -118,7 +118,7 @@
             // 
             this.but_First.FlatAppearance.BorderSize = 0;
             this.but_First.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.but_First.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.but_First.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.but_First.ForeColor = System.Drawing.SystemColors.Control;
             this.but_First.Location = new System.Drawing.Point(0, 53);
             this.but_First.Name = "but_First";
@@ -176,6 +176,10 @@
             this.panel1.Size = new System.Drawing.Size(751, 527);
             this.panel1.TabIndex = 3;
             // 
+            // timer_curTime
+            // 
+            this.timer_curTime.Tick += new System.EventHandler(this.timer_curTime_Tick);
+            // 
             // settingsControlUser
             // 
             this.settingsControlUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
@@ -205,10 +209,6 @@
             this.firstControlUser.Name = "firstControlUser";
             this.firstControlUser.Size = new System.Drawing.Size(751, 527);
             this.firstControlUser.TabIndex = 2;
-            // 
-            // timer_curTime
-            // 
-            this.timer_curTime.Tick += new System.EventHandler(this.timer_curTime_Tick);
             // 
             // SFD_Main
             // 
@@ -244,7 +244,7 @@
         private Forms.firstControlUser firstControlUser;
         private System.Windows.Forms.Button but_Weather;
         private Forms.WeatherControlUser weatherControlUser;
-        private System.Windows.Forms.Button but_News;
+        private System.Windows.Forms.Button but_FTP;
         private System.Windows.Forms.Timer timer_curTime;
         private System.Windows.Forms.Button but_Settings;
         private System.Windows.Forms.Label label_curTime;

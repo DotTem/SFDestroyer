@@ -37,10 +37,10 @@
             this.label_Feel = new System.Windows.Forms.Label();
             this.picBox_CurWeather = new System.Windows.Forms.PictureBox();
             this.panel_forecast = new System.Windows.Forms.Panel();
+            this.label_FirstDay = new System.Windows.Forms.Label();
             this.picBox_City = new System.Windows.Forms.PictureBox();
             this.but_curTemp = new System.Windows.Forms.Button();
             this.but_Forecast = new System.Windows.Forms.Button();
-            this.label_FirstDay = new System.Windows.Forms.Label();
             this.panel_Temps.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_CurWeather)).BeginInit();
             this.panel_forecast.SuspendLayout();
@@ -52,7 +52,7 @@
             this.txtBox_City.AcceptsReturn = true;
             this.txtBox_City.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtBox_City.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBox_City.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtBox_City.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtBox_City.ForeColor = System.Drawing.SystemColors.Control;
             this.txtBox_City.Location = new System.Drawing.Point(57, 27);
             this.txtBox_City.Name = "txtBox_City";
@@ -64,11 +64,11 @@
             // 
             this.label_curCity.AutoSize = true;
             this.label_curCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.label_curCity.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_curCity.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_curCity.ForeColor = System.Drawing.SystemColors.Control;
             this.label_curCity.Location = new System.Drawing.Point(8, 13);
             this.label_curCity.Name = "label_curCity";
-            this.label_curCity.Size = new System.Drawing.Size(24, 24);
+            this.label_curCity.Size = new System.Drawing.Size(34, 24);
             this.label_curCity.TabIndex = 2;
             this.label_curCity.Text = "--";
             // 
@@ -77,11 +77,11 @@
             this.label_Temperature.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label_Temperature.AutoSize = true;
             this.label_Temperature.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.label_Temperature.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_Temperature.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_Temperature.ForeColor = System.Drawing.SystemColors.Control;
             this.label_Temperature.Location = new System.Drawing.Point(562, 180);
             this.label_Temperature.Name = "label_Temperature";
-            this.label_Temperature.Size = new System.Drawing.Size(63, 33);
+            this.label_Temperature.Size = new System.Drawing.Size(90, 32);
             this.label_Temperature.TabIndex = 3;
             this.label_Temperature.Text = "--/--";
             // 
@@ -89,11 +89,11 @@
             // 
             this.label_curTemperature.AutoSize = true;
             this.label_curTemperature.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.label_curTemperature.Font = new System.Drawing.Font("Century Gothic", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_curTemperature.Font = new System.Drawing.Font("Consolas", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_curTemperature.ForeColor = System.Drawing.SystemColors.Control;
             this.label_curTemperature.Location = new System.Drawing.Point(-9, 37);
             this.label_curTemperature.Name = "label_curTemperature";
-            this.label_curTemperature.Size = new System.Drawing.Size(115, 115);
+            this.label_curTemperature.Size = new System.Drawing.Size(153, 112);
             this.label_curTemperature.TabIndex = 6;
             this.label_curTemperature.Text = "--";
             // 
@@ -101,11 +101,11 @@
             // 
             this.label_curWeather.AutoSize = true;
             this.label_curWeather.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.label_curWeather.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_curWeather.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_curWeather.ForeColor = System.Drawing.SystemColors.Control;
             this.label_curWeather.Location = new System.Drawing.Point(6, 152);
             this.label_curWeather.Name = "label_curWeather";
-            this.label_curWeather.Size = new System.Drawing.Size(33, 33);
+            this.label_curWeather.Size = new System.Drawing.Size(45, 32);
             this.label_curWeather.TabIndex = 7;
             this.label_curWeather.Text = "--";
             // 
@@ -126,11 +126,11 @@
             // label_Feel
             // 
             this.label_Feel.AutoSize = true;
-            this.label_Feel.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_Feel.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_Feel.ForeColor = System.Drawing.SystemColors.Control;
             this.label_Feel.Location = new System.Drawing.Point(6, 227);
             this.label_Feel.Name = "label_Feel";
-            this.label_Feel.Size = new System.Drawing.Size(82, 33);
+            this.label_Feel.Size = new System.Drawing.Size(90, 32);
             this.label_Feel.TabIndex = 8;
             this.label_Feel.Text = "Feel:";
             // 
@@ -150,10 +150,21 @@
             // 
             this.panel_forecast.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.panel_forecast.Controls.Add(this.label_FirstDay);
+            this.panel_forecast.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel_forecast.Location = new System.Drawing.Point(12, 120);
             this.panel_forecast.Name = "panel_forecast";
             this.panel_forecast.Size = new System.Drawing.Size(724, 260);
             this.panel_forecast.TabIndex = 8;
+            // 
+            // label_FirstDay
+            // 
+            this.label_FirstDay.AutoSize = true;
+            this.label_FirstDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.label_FirstDay.Location = new System.Drawing.Point(294, 120);
+            this.label_FirstDay.Name = "label_FirstDay";
+            this.label_FirstDay.Size = new System.Drawing.Size(73, 13);
+            this.label_FirstDay.TabIndex = 0;
+            this.label_FirstDay.Text = "Coming Soon";
             // 
             // picBox_City
             // 
@@ -170,7 +181,7 @@
             this.but_curTemp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.but_curTemp.FlatAppearance.BorderSize = 0;
             this.but_curTemp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.but_curTemp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.but_curTemp.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.but_curTemp.ForeColor = System.Drawing.SystemColors.Control;
             this.but_curTemp.Location = new System.Drawing.Point(112, 98);
             this.but_curTemp.Name = "but_curTemp";
@@ -184,7 +195,7 @@
             // 
             this.but_Forecast.FlatAppearance.BorderSize = 0;
             this.but_Forecast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.but_Forecast.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.but_Forecast.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.but_Forecast.ForeColor = System.Drawing.SystemColors.Control;
             this.but_Forecast.Location = new System.Drawing.Point(186, 98);
             this.but_Forecast.Name = "but_Forecast";
@@ -193,16 +204,6 @@
             this.but_Forecast.Text = "Forecast";
             this.but_Forecast.UseVisualStyleBackColor = true;
             this.but_Forecast.Click += new System.EventHandler(this.but_Forecast_Click);
-            // 
-            // label_FirstDay
-            // 
-            this.label_FirstDay.AutoSize = true;
-            this.label_FirstDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.label_FirstDay.Location = new System.Drawing.Point(294, 120);
-            this.label_FirstDay.Name = "label_FirstDay";
-            this.label_FirstDay.Size = new System.Drawing.Size(91, 16);
-            this.label_FirstDay.TabIndex = 0;
-            this.label_FirstDay.Text = "Coming Soon";
             // 
             // WeatherControlUser
             // 

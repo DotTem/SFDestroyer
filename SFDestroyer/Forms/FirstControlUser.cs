@@ -13,16 +13,20 @@ namespace SFDestroyer.Forms
 {
     public partial class firstControlUser : UserControl
     {
-        private string[] filterDefault = { }; 
         private string[] filtersText = { ".txt", ".pdf" };
         private string[] filterVideo = { ".mp4", ".avi" };
         private string[] filterImage = { ".jpg", ".jpeg", ".png" };
+        private string[] filterSelf = { };
 
         bool isSelectedPath = false;
 
         public firstControlUser()
         {
             InitializeComponent();
+            foreach(string filter in Properties.Settings.Default.FilterSelf)
+            {
+                treeFilt.Nodes.Add(filter);
+            }
         }
 
         private void but_SelectPath_Click(object sender, EventArgs e)
@@ -57,7 +61,7 @@ namespace SFDestroyer.Forms
                         tableImage.Show();
                         break;
                     case -1:
-                        TableForm tableDefault = new TableForm(txtB_Path.Text, dateTimePicker1, dateTimePicker2, filterDefault);
+                        TableForm tableDefault = new TableForm(txtB_Path.Text, dateTimePicker1, dateTimePicker2);
                         tableDefault.Show();
                         break;
                         

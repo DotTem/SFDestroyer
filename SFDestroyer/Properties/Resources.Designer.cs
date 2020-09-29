@@ -71,15 +71,6 @@ namespace SFDestroyer.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Moscow.
-        /// </summary>
-        public static string citySet {
-            get {
-                return ResourceManager.GetString("citySet", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Поиск локализованного ресурса типа System.Byte[].
         /// </summary>
         public static byte[] Newtonsoft_Json {

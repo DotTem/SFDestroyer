@@ -40,6 +40,7 @@
             this.label_timePassed = new System.Windows.Forms.Label();
             this.txtBox_Console = new System.Windows.Forms.TextBox();
             this.but_Del = new SFDestroyer.Classes.RoundButton();
+            this.treeOut = new System.Windows.Forms.TreeView();
             this.panel_Upper.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             this.panel_Upper.Location = new System.Drawing.Point(0, 0);
             this.panel_Upper.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel_Upper.Name = "panel_Upper";
-            this.panel_Upper.Size = new System.Drawing.Size(751, 18);
+            this.panel_Upper.Size = new System.Drawing.Size(1105, 18);
             this.panel_Upper.TabIndex = 3;
             this.panel_Upper.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_Upper_MouseDown);
             this.panel_Upper.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_Upper_MouseMove);
@@ -78,7 +79,7 @@
             this.list_NT.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.fileNames,
             this.type});
-            this.list_NT.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.list_NT.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.list_NT.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.list_NT.HideSelection = false;
             this.list_NT.LabelWrap = false;
@@ -95,7 +96,7 @@
             // 
             this.fileNames.Tag = "fff";
             this.fileNames.Text = "Name";
-            this.fileNames.Width = 360;
+            this.fileNames.Width = 356;
             // 
             // type
             // 
@@ -106,7 +107,7 @@
             // 
             this.lstBox_Dirs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.lstBox_Dirs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstBox_Dirs.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lstBox_Dirs.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lstBox_Dirs.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.lstBox_Dirs.FormattingEnabled = true;
             this.lstBox_Dirs.ItemHeight = 22;
@@ -120,10 +121,11 @@
             // label_Timer
             // 
             this.label_Timer.AutoSize = true;
+            this.label_Timer.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_Timer.ForeColor = System.Drawing.SystemColors.Control;
-            this.label_Timer.Location = new System.Drawing.Point(92, 503);
+            this.label_Timer.Location = new System.Drawing.Point(92, 505);
             this.label_Timer.Name = "label_Timer";
-            this.label_Timer.Size = new System.Drawing.Size(35, 16);
+            this.label_Timer.Size = new System.Drawing.Size(37, 13);
             this.label_Timer.TabIndex = 12;
             this.label_Timer.Text = "00:00";
             // 
@@ -135,10 +137,11 @@
             // label_timePassed
             // 
             this.label_timePassed.AutoSize = true;
+            this.label_timePassed.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_timePassed.ForeColor = System.Drawing.SystemColors.Control;
-            this.label_timePassed.Location = new System.Drawing.Point(9, 503);
+            this.label_timePassed.Location = new System.Drawing.Point(9, 505);
             this.label_timePassed.Name = "label_timePassed";
-            this.label_timePassed.Size = new System.Drawing.Size(77, 16);
+            this.label_timePassed.Size = new System.Drawing.Size(79, 13);
             this.label_timePassed.TabIndex = 13;
             this.label_timePassed.Text = "Time passed:";
             // 
@@ -146,8 +149,9 @@
             // 
             this.txtBox_Console.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.txtBox_Console.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBox_Console.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtBox_Console.ForeColor = System.Drawing.SystemColors.Control;
-            this.txtBox_Console.Location = new System.Drawing.Point(133, 467);
+            this.txtBox_Console.Location = new System.Drawing.Point(135, 467);
             this.txtBox_Console.Multiline = true;
             this.txtBox_Console.Name = "txtBox_Console";
             this.txtBox_Console.ReadOnly = true;
@@ -167,20 +171,31 @@
             this.but_Del.ButtonPressedColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.but_Del.ButtonPressedForeColor = System.Drawing.Color.Black;
             this.but_Del.ButtonRoundRadius = 15;
-            this.but_Del.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.but_Del.Location = new System.Drawing.Point(641, 491);
+            this.but_Del.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.but_Del.Location = new System.Drawing.Point(641, 492);
             this.but_Del.Name = "but_Del";
             this.but_Del.Size = new System.Drawing.Size(98, 27);
             this.but_Del.TabIndex = 11;
             this.but_Del.Text = "Delete file";
             this.but_Del.Click += new System.EventHandler(this.but_Del_Click);
             // 
+            // treeOut
+            // 
+            this.treeOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.treeOut.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeOut.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.treeOut.Location = new System.Drawing.Point(839, 149);
+            this.treeOut.Name = "treeOut";
+            this.treeOut.Size = new System.Drawing.Size(216, 311);
+            this.treeOut.TabIndex = 15;
+            // 
             // TableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(751, 527);
+            this.ClientSize = new System.Drawing.Size(1105, 699);
+            this.Controls.Add(this.treeOut);
             this.Controls.Add(this.txtBox_Console);
             this.Controls.Add(this.label_timePassed);
             this.Controls.Add(this.label_Timer);
@@ -213,5 +228,6 @@
         private System.Windows.Forms.Timer timeDoing;
         private System.Windows.Forms.Label label_timePassed;
         private System.Windows.Forms.TextBox txtBox_Console;
+        private System.Windows.Forms.TreeView treeOut;
     }
 }
