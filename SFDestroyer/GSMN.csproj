@@ -99,6 +99,12 @@
     <Compile Include="Forms\FirstControlUser.Designer.cs">
       <DependentUpon>FirstControlUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FTPControlUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\FTPControlUser.Designer.cs">
+      <DependentUpon>FTPControlUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SettingsControlUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     <EmbeddedResource Include="Forms\FirstControlUser.resx">
       <DependentUpon>FirstControlUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FTPControlUser.resx">
+      <DependentUpon>FTPControlUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingsControlUser.resx">
       <DependentUpon>SettingsControlUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +159,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\GSMNLib.SFDLib.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

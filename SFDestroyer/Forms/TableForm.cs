@@ -13,11 +13,19 @@ using System.Globalization;
 using System.Threading;
 using System.Drawing.Text;
 using System.Windows.Controls;
+using System.Drawing;
 
 namespace SFDestroyer.Forms
 {
     public partial class TableForm : Form
     {
+        //creating list for temporary files
+        private List<string> tempFiles = new List<string>();
+        //creating lists for files and directories
+        private List<string> allFiles = new List<string>();
+        private List<string> allDirs = new List<string>();
+        //Timer
+        private int timerSeconds = 0;
 
         #region Moving
         //coords of nouse
@@ -48,19 +56,21 @@ namespace SFDestroyer.Forms
         }
         #endregion
 
-
-        //creating list for temporary files
-        private List<string> tempFiles = new List<string>();
-        //creating lists for files and directories
-        private List<string> allFiles = new List<string>();
-        private List<string> allDirs = new List<string>();
-        //Timer
-        private int timerSeconds = 0;
-
+        #region Main Methods
+        
+        /// <summary>
+        /// Scanner with extension filter
+        /// </summary>
+        /// <param name="path">Choosen directory</param>
+        /// <param name="dateTimePickerFrom">Start time</param>
+        /// <param name="dateTimePickerTo">End time</param>
+        /// <param name="filter">string[] with extensions</param>
         public TableForm(string path, DateTimePicker dateTimePickerFrom, DateTimePicker dateTimePickerTo, string[] filter)
         {
             InitializeComponent();
 
+            panel_ListBoxes.BringToFront()
+;
             txtBox_Console.Text += ("Started scanning...");
             //Start of Timer(Time passed)
             timeDoing.Enabled = true;
@@ -97,9 +107,18 @@ namespace SFDestroyer.Forms
                 txtBox_Console.Text += ("\r\nEnded visualization. Done!");
             }
         }
+
+        /// <summary>
+        /// Scanner only with Date filter 
+        /// </summary>
+        /// <param name="path">Choosen directory</param>
+        /// <param name="dateTimePickerFrom">Start time</param>
+        /// <param name="dateTimePickerTo">End time</param>
         public TableForm(string path, DateTimePicker dateTimePickerFrom, DateTimePicker dateTimePickerTo)
         {
             InitializeComponent();
+
+            panel_ListBoxes.BringToFront();
 
             txtBox_Console.Text += ("Started scanning place...");
             //Start of Timer(Time passed)
@@ -117,14 +136,12 @@ namespace SFDestroyer.Forms
                 //Adding files to listbox
                 foreach (string filetemp in allFiles)
                 {
-                    if (dateTimePickerFrom.Value.Ticks < Convert.ToInt64(File.GetLastWriteTime(filetemp).Ticks) && Convert.ToInt64(File.GetLastWriteTime(filetemp).Ticks) < dateTimePickerTo.Value.Ticks)
                         list_NT.Items.Add(Path.GetFileName(filetemp)).SubItems.Add(Path.GetExtension(filetemp));
                 }
 
                 //Adding dir names to listbox
                 foreach (string dirs in allDirs)
                 {
-                    if (dateTimePickerFrom.Value.Ticks < Convert.ToInt64(Directory.GetLastWriteTime(dirs).Ticks) && Convert.ToInt64(Directory.GetLastWriteTime(dirs).Ticks) < dateTimePickerTo.Value.Ticks)
                         lstBox_Dirs.Items.Add(Path.GetFileName(dirs));
                 }
                 //Stopping 'Time passed'
@@ -134,16 +151,39 @@ namespace SFDestroyer.Forms
             }
         }
 
-        /// <summary>
-        /// Closing Window
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void label_CloseWindow_Click(object sender, EventArgs e)
+        #endregion
+
+        #region Buttons
+        private void but_Del_Click(object sender, EventArgs e)
         {
-            Close();
+            //Delete file from file system
+            File.Delete(allFiles[list_NT.SelectedIndices[0]]);
+            //Delete file path from list<>
+            allFiles.RemoveAt(list_NT.SelectedIndices[0]);
+
+            //Updating listview
+            list_NT.Items.Clear();
+            foreach (string file in allFiles)
+            {
+                list_NT.Items.Add(Path.GetFileName(file)).SubItems.Add(Path.GetExtension(file));
+            }
         }
 
+        private void but_ListsSwitch_Click(object sender, EventArgs e)
+        {
+            panel_ListBoxes.BringToFront();
+            but_ListsSwitch.BackColor = Color.FromArgb(55, 55, 55);
+            but_treeSwitch.BackColor = Color.FromArgb(50, 50, 50);
+
+
+        }
+        private void but_treeSwitch_Click(object sender, EventArgs e)
+        {
+            panel_treeView.BringToFront();
+            but_ListsSwitch.BackColor = Color.FromArgb(50, 50, 50);
+            but_treeSwitch.BackColor = Color.FromArgb(55, 55, 55);
+        }
+        
         //Double click on file
         private void list_NT_DoubleClick(object sender, EventArgs e)
         {
@@ -172,21 +212,12 @@ namespace SFDestroyer.Forms
             Process.Start(new ProcessStartInfo("explorer.exe", " /select, " + textdir));
         }
 
-        private void but_Del_Click(object sender, EventArgs e)
+        #endregion
+        
+        private void label_CloseWindow_Click(object sender, EventArgs e)
         {
-            //Delete file from file system
-            File.Delete(allFiles[list_NT.SelectedIndices[0]]);
-            //Delete file path from list<>
-            allFiles.RemoveAt(list_NT.SelectedIndices[0]);
-
-            //Updating listview
-            list_NT.Items.Clear();
-            foreach (string file in allFiles)
-            {
-                list_NT.Items.Add(Path.GetFileName(file)).SubItems.Add(Path.GetExtension(file));
-            }
+            Close();
         }
-
         private void timeDoing_Tick(object sender, EventArgs e)
         {
             timerSeconds++;

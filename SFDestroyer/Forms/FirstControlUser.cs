@@ -24,10 +24,6 @@ namespace SFDestroyer.Forms
         {
             InitializeComponent();
             cmvBox_Filter.SelectedIndex = 0;
-            foreach(string filter in Properties.Settings.Default.FilterSelf)
-            {
-                treeFilt.Nodes.Add(filter);
-            }
         }
 
         private void but_SelectPath_Click(object sender, EventArgs e)

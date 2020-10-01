@@ -79,7 +79,7 @@
             this.label_Temperature.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.label_Temperature.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_Temperature.ForeColor = System.Drawing.SystemColors.Control;
-            this.label_Temperature.Location = new System.Drawing.Point(562, 180);
+            this.label_Temperature.Location = new System.Drawing.Point(711, 181);
             this.label_Temperature.Name = "label_Temperature";
             this.label_Temperature.Size = new System.Drawing.Size(90, 32);
             this.label_Temperature.TabIndex = 3;
@@ -120,7 +120,7 @@
             this.panel_Temps.Controls.Add(this.label_curCity);
             this.panel_Temps.Location = new System.Drawing.Point(12, 120);
             this.panel_Temps.Name = "panel_Temps";
-            this.panel_Temps.Size = new System.Drawing.Size(721, 260);
+            this.panel_Temps.Size = new System.Drawing.Size(864, 430);
             this.panel_Temps.TabIndex = 8;
             // 
             // label_Feel
@@ -139,7 +139,7 @@
             this.picBox_CurWeather.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.picBox_CurWeather.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picBox_CurWeather.InitialImage = null;
-            this.picBox_CurWeather.Location = new System.Drawing.Point(521, 13);
+            this.picBox_CurWeather.Location = new System.Drawing.Point(643, 13);
             this.picBox_CurWeather.Name = "picBox_CurWeather";
             this.picBox_CurWeather.Size = new System.Drawing.Size(200, 200);
             this.picBox_CurWeather.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -153,7 +153,7 @@
             this.panel_forecast.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel_forecast.Location = new System.Drawing.Point(12, 120);
             this.panel_forecast.Name = "panel_forecast";
-            this.panel_forecast.Size = new System.Drawing.Size(724, 260);
+            this.panel_forecast.Size = new System.Drawing.Size(864, 430);
             this.panel_forecast.TabIndex = 8;
             // 
             // label_FirstDay
@@ -219,7 +219,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WeatherControlUser";
-            this.Size = new System.Drawing.Size(751, 527);
+            this.Size = new System.Drawing.Size(888, 614);
             this.panel_Temps.ResumeLayout(false);
             this.panel_Temps.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_CurWeather)).EndInit();

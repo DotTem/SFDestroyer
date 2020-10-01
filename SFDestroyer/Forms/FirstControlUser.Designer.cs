@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode(".txt");
             this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
             this.label_From = new System.Windows.Forms.Label();
@@ -39,7 +38,6 @@
             this.cmvBox_Filter = new System.Windows.Forms.ComboBox();
             this.but_SelectPath = new SFDestroyer.Classes.RoundButton();
             this.but_Do_1 = new SFDestroyer.Classes.RoundButton();
-            this.treeFilt = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
             // dateTimePickerFrom
@@ -94,7 +92,7 @@
             this.txtB_Path.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtB_Path.Name = "txtB_Path";
             this.txtB_Path.ReadOnly = true;
-            this.txtB_Path.Size = new System.Drawing.Size(684, 26);
+            this.txtB_Path.Size = new System.Drawing.Size(803, 26);
             this.txtB_Path.TabIndex = 8;
             this.txtB_Path.WordWrap = false;
             // 
@@ -130,7 +128,7 @@
             "Text",
             "Video",
             "Image"});
-            this.cmvBox_Filter.Location = new System.Drawing.Point(91, 263);
+            this.cmvBox_Filter.Location = new System.Drawing.Point(109, 266);
             this.cmvBox_Filter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmvBox_Filter.Name = "cmvBox_Filter";
             this.cmvBox_Filter.Size = new System.Drawing.Size(121, 27);
@@ -149,7 +147,7 @@
             this.but_SelectPath.ButtonPressedForeColor = System.Drawing.Color.Black;
             this.but_SelectPath.ButtonRoundRadius = 15;
             this.but_SelectPath.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.but_SelectPath.Location = new System.Drawing.Point(668, 119);
+            this.but_SelectPath.Location = new System.Drawing.Point(788, 120);
             this.but_SelectPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.but_SelectPath.Name = "but_SelectPath";
             this.but_SelectPath.Size = new System.Drawing.Size(79, 27);
@@ -170,7 +168,7 @@
             this.but_Do_1.ButtonPressedForeColor = System.Drawing.Color.Black;
             this.but_Do_1.ButtonRoundRadius = 15;
             this.but_Do_1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.but_Do_1.Location = new System.Drawing.Point(668, 497);
+            this.but_Do_1.Location = new System.Drawing.Point(806, 573);
             this.but_Do_1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.but_Do_1.Name = "but_Do_1";
             this.but_Do_1.Size = new System.Drawing.Size(79, 27);
@@ -178,27 +176,11 @@
             this.but_Do_1.Text = "Do";
             this.but_Do_1.Click += new System.EventHandler(this.but_Do_1_Click);
             // 
-            // treeFilt
-            // 
-            this.treeFilt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.treeFilt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeFilt.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.treeFilt.Location = new System.Drawing.Point(299, 263);
-            this.treeFilt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.treeFilt.Name = "treeFilt";
-            treeNode1.Name = ".txt";
-            treeNode1.Text = ".txt";
-            this.treeFilt.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            this.treeFilt.Size = new System.Drawing.Size(205, 141);
-            this.treeFilt.TabIndex = 15;
-            // 
             // firstControlUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.Controls.Add(this.treeFilt);
             this.Controls.Add(this.cmvBox_Filter);
             this.Controls.Add(this.label_Path);
             this.Controls.Add(this.but_SelectPath);
@@ -212,7 +194,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "firstControlUser";
-            this.Size = new System.Drawing.Size(751, 527);
+            this.Size = new System.Drawing.Size(888, 614);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,6 +212,5 @@
         private Classes.RoundButton but_SelectPath;
         private System.Windows.Forms.Label label_Path;
         private System.Windows.Forms.ComboBox cmvBox_Filter;
-        private System.Windows.Forms.TreeView treeFilt;
     }
 }

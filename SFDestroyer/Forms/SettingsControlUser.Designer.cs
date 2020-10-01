@@ -50,10 +50,9 @@
             this.txtBox_citySet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtBox_citySet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBox_citySet.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtBox_citySet.Location = new System.Drawing.Point(152, 27);
-            this.txtBox_citySet.Multiline = true;
+            this.txtBox_citySet.Location = new System.Drawing.Point(152, 25);
             this.txtBox_citySet.Name = "txtBox_citySet";
-            this.txtBox_citySet.Size = new System.Drawing.Size(186, 21);
+            this.txtBox_citySet.Size = new System.Drawing.Size(186, 26);
             this.txtBox_citySet.TabIndex = 1;
             this.txtBox_citySet.Enter += new System.EventHandler(this.txtBox_citySet_Enter);
             this.txtBox_citySet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_citySet_KeyDown);
@@ -93,7 +92,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "SettingsControlUser";
-            this.Size = new System.Drawing.Size(751, 527);
+            this.Size = new System.Drawing.Size(885, 614);
             this.ResumeLayout(false);
             this.PerformLayout();
 

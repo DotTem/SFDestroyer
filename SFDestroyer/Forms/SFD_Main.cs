@@ -63,6 +63,7 @@ namespace SFDestroyer
             but_First.BackColor = Color.FromArgb(50, 50, 50);
             but_Weather.BackColor = Color.FromArgb(64, 64, 64);
             but_Settings.BackColor = Color.FromArgb(64, 64, 64);
+            but_FTP.BackColor = Color.FromArgb(64, 64, 64);
         }
 
         private void label_CloseWindow_Click(object sender, EventArgs e)
@@ -73,10 +74,12 @@ namespace SFDestroyer
 
         private void but_Weather_Click(object sender, EventArgs e)
         {
-            weatherControlUser.BringToFront();
+            WeatherControlUser.BringToFront();
             but_First.BackColor = Color.FromArgb(64, 64, 64);
             but_Weather.BackColor = Color.FromArgb(50, 50, 50);
             but_Settings.BackColor = Color.FromArgb(64, 64, 64);
+            but_FTP.BackColor = Color.FromArgb(64, 64, 64);
+
         }
 
         private void timer_curTime_Tick(object sender, EventArgs e)
@@ -86,10 +89,21 @@ namespace SFDestroyer
 
         private void but_Settings_Click(object sender, EventArgs e)
         {
+            SettingsControlUser.BringToFront();
             but_First.BackColor = Color.FromArgb(64, 64, 64);
             but_Weather.BackColor = Color.FromArgb(64,64,64);
             but_Settings.BackColor = Color.FromArgb(50, 50, 50);
-            settingsControlUser.BringToFront();
+            but_FTP.BackColor = Color.FromArgb(64, 64, 64);
+            
+        }
+
+        private void but_FTP_Click(object sender, EventArgs e)
+        {
+            FtpControlUser.BringToFront();
+            but_First.BackColor = Color.FromArgb(64, 64, 64);
+            but_Weather.BackColor = Color.FromArgb(64, 64, 64);
+            but_Settings.BackColor = Color.FromArgb(64, 64, 64);
+            but_FTP.BackColor = Color.FromArgb(50, 50, 50);
         }
     }
 }

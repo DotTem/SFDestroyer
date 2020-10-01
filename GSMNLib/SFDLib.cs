@@ -60,7 +60,7 @@ namespace GSMNLib
                     {
                         for (int elemCount = 0; elemCount < filter.Length; elemCount++)
                         {
-                            if (Path.GetExtension(curElement) == filter[elemCount])
+                            if (Path.GetExtension(curElement).ToLower() == filter[elemCount])
                             {
                                 tempFilesList.Add(curElement);
                             }
@@ -84,13 +84,5 @@ namespace GSMNLib
             }
             catch { }
         }
-
-        public static TreeNode CreateDirectoryNode(string path)
-        {
-            TreeNode node = new TreeNode();
-            node.Nodes.Add(path);
-            return node;
-        }
-
     }
 }
