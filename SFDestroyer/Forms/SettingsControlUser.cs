@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SFDestroyer.Properties;
+using System.Net;
 
 namespace SFDestroyer.Forms
 {
@@ -32,9 +33,27 @@ namespace SFDestroyer.Forms
 
         private void txtBox_citySet_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter && txtBox_citySet.Text != null)
+            string city = txtBox_citySet.Text;
+
+            if(e.KeyCode == Keys.Enter && city != null )
             {
-                Properties.Settings.Default.CitySetDefault = txtBox_citySet.Text;
+                e.SuppressKeyPress = true;
+                try
+                {
+                    using (WebClient checking = new WebClient { Encoding = Encoding.UTF8 })
+                    {
+                        checking.Proxy = new WebProxy();
+                        checking.DownloadString("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=0ed1773f3181837e871a4af846d38ab1");
+                    }
+                    Properties.Settings.Default.CitySetDefault = city;
+                    MessageBox.Show("City " + '"' + city +'"' + " set to default");
+                }
+                catch
+                {
+                    MessageBox.Show("No city with " + '"' + city +'"' + " name");
+                }
+                
+                
             }
         }
     }

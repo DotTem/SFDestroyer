@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ForecastInfo.cs" />
+    <Compile Include="Classes\OneCallInfo.cs" />
     <Compile Include="Classes\RoundButton.cs">
       <SubType>Component</SubType>
     </Compile>

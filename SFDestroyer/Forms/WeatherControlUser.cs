@@ -77,28 +77,38 @@ namespace SFDestroyer.Forms
                 apiLoading.Headers["User-Agent"] = "Mozilla/5.0";
                 //urls of api-site
                 string weatherUrl = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=0ed1773f3181837e871a4af846d38ab1";
-                string forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=0ed1773f3181837e871a4af846d38ab1";
-                //download jsons from current urls
+                //download json from current urls
                 string weatherJson = apiLoading.DownloadString(weatherUrl);
-                string forecastJson = apiLoading.DownloadString(forecastUrl);
-
                 //Convertation page with current weather
                 WeatherInfo.Root weatherInfo = JsonConvert.DeserializeObject<WeatherInfo.Root>(weatherJson);
-                //Convertation page with 5 day(interave; = 3 hours) forecast
-                ForecastInfo.Root forecastInfo = JsonConvert.DeserializeObject<ForecastInfo.Root>(forecastJson);
+
+                //Url of all-in-one api-site
+                string oneCallUrl = "http://api.openweathermap.org/data/2.5/onecall?lat="+weatherInfo.Coord.Lat+"&lon="+weatherInfo.Coord.Lon+"&units=metric&exclude=minutely&appid=0ed1773f3181837e871a4af846d38ab1";
+                //Downloading json from current Url
+                string oneCallJson = apiLoading.DownloadString(oneCallUrl);
+                //Convertation all-in-one request
+                OneCallInfo.Root oneCallInfo = JsonConvert.DeserializeObject<OneCallInfo.Root>(oneCallJson);
 
                 #region Binding data to control user
-                //Labels
-                label_Temperature.Text = ((int)weatherInfo.Main.Temp_min + "°/" + (int)weatherInfo.Main.Temp_max + '°').ToString();
-                label_curTemperature.Text = ((int)weatherInfo.Main.Temp + "°").ToString();
-                label_curWeather.Text = weatherInfo.Weather[0].Main;
-                label_curCity.Text = ("Weather: " + weatherInfo.Name);
-                label_Feel.Text = String.Format("Feel: {0}°", (int)weatherInfo.Main.Feels_like);
-                //Images
-                using (Stream stream = apiLoading.OpenRead("http://openweathermap.org/img/wn/" + weatherInfo.Weather[0].Icon + "@4x.png"))
-                {
-                    picBox_CurWeather.Image = Bitmap.FromStream(stream);
-                }
+
+                    #region Current Weather
+                    //Labels
+                    label_Temperature.Text = ((int)oneCallInfo.Daily[0].Temp.Min + "°/" + (int)oneCallInfo.Daily[0].Temp.Max + '°').ToString();
+                    label_curTemperature.Text = ((int)oneCallInfo.Current.Temp + "°").ToString();
+                    label_curWeather.Text = oneCallInfo.Current.Weather[0].Main;
+                    label_curCity.Text = ("Weather: " + city);
+                    label_Feel.Text = String.Format("Feel: {0}°", (int)oneCallInfo.Current.Feels_like);
+                    //Images
+                    using (Stream stream = apiLoading.OpenRead("http://openweathermap.org/img/wn/" + oneCallInfo.Current.Weather[0].Icon + "@4x.png"))
+                    {
+                        picBox_CurWeather.Image = Bitmap.FromStream(stream);
+                    }
+
+                #endregion
+
+                    #region Forecast
+
+                    #endregion
                 #endregion
             }
         }

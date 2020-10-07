@@ -87,10 +87,13 @@
             // 
             // txtB_Console
             // 
-            this.txtB_Console.Location = new System.Drawing.Point(432, 451);
+            this.txtB_Console.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.txtB_Console.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtB_Console.ForeColor = System.Drawing.SystemColors.Control;
+            this.txtB_Console.Location = new System.Drawing.Point(0, 477);
             this.txtB_Console.Multiline = true;
             this.txtB_Console.Name = "txtB_Console";
-            this.txtB_Console.Size = new System.Drawing.Size(453, 163);
+            this.txtB_Console.Size = new System.Drawing.Size(885, 134);
             this.txtB_Console.TabIndex = 12;
             // 
             // FTPControlUser

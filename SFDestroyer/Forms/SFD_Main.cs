@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using SFDestroyer.Forms;
+using System.Net;
 
 namespace SFDestroyer
 {
@@ -20,7 +21,7 @@ namespace SFDestroyer
         private int mouseX = 0;
         private int mouseY = 0;
         //is mouse down
-        bool MouseDown = false;
+        private bool MouseDown = false;
         private void panel_Upper_MouseDown(object sender, MouseEventArgs e)
         {
             MouseDown = true;
