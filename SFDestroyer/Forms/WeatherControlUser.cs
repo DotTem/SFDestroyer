@@ -14,9 +14,15 @@ namespace SFDestroyer.Forms
         public WeatherControlUser()
         {
             InitializeComponent();
+
             SetRoundedShape(panel_Temps, 30);
-            SetRoundedShape(panel_forecast, 30);
+            SetRoundedShape(panel_forecast, 30);            
+            SetRoundedShape(panel_F_Today, 30);
+            SetRoundedShape(panel_F_OtherDays, 30);
             SetRoundedShape(txtBox_City, 10);
+            SetRoundedShape(panel_F_Tomorrow, 30);
+            SetRoundedShape(panel_F_Third, 30);
+
             #region first try
             /*            //parsing
                         using (WebClient apiInteracion = new WebClient { Encoding = Encoding.UTF8 })
@@ -44,7 +50,7 @@ namespace SFDestroyer.Forms
             panel_Temps.BringToFront();
             apiInteraction(Properties.Settings.Default.CitySetDefault);
 
-            SetRoundedShape(gbToday, 30);
+
         }
 
         #region Buttons
@@ -73,9 +79,9 @@ namespace SFDestroyer.Forms
         /// api.openweathermap.org/data/2.5/forecast/daily?q=Moscow&cnt=5&appid=0ed1773f3181837e871a4af846d38ab1
         void apiInteraction (string city)
         {
-            Label[] labels_F_List = { label_F_TempToday, label_F_TempTomorrow, label_F_TempThird, label_F_TempFourth, label_F_TempFifth };
+            Label[] labels_F_TempList = { label_F_TempToday, label_F_TempTomorrow, label_F_TempThird, label_F_TempFourth, label_F_TempFifth };
+            Label[] labels_F_DateList = { label_F_Date0, label_F_Date1, label_F_Date2, label_F_Date3, label_F_Date4 };
             PictureBox[] picBoxes_F_List = { picBox_F_Today, picBox_F_1, picBox_F_2, picBox_F_3, picBox_F_4 };
-            GroupBox[] gb_F_List = { gbToday, gbTomorrow, gbThird, gbFourth, gbFifth };
 
             using (WebClient apiLoading = new WebClient { Encoding = Encoding.UTF8 })
             {
@@ -114,27 +120,23 @@ namespace SFDestroyer.Forms
                     #region Forecast
                 {
                     //Labels
-                    /* for (int index = 2; index < 5; index++)
-                     {
-
-                     }
-                     label_F_Third.Text = (TimeSpan.FromMilliseconds(double.Parse(oneCallInfo.Daily[2].Dt.ToString())).Ticks).ToString("dd:MMM");
-                     label_F_Fourth.Text = new DateTime(oneCallInfo.Daily[3].Dt).ToString("dd:MMM");
-                     label_F_Fifth.Text = new DateTime(oneCallInfo.Daily[4].Dt).ToString("dd:MMM"); TOOOOOOOOOOOOOOOODOOOOOOOOOOOOOOOOOOOOOOOOOOOO*/
 
                     for(int index = 0; index < 5; index++)
                     {
                         //return current date
                         var posixTime = DateTime.SpecifyKind(new DateTime(1970, 1, 1), DateTimeKind.Utc);
                         //add to groupboxes texts
-                        gb_F_List[index].Text = posixTime.AddMilliseconds(oneCallInfo.Daily[index].Dt * 1000).ToString("dd:MMM");
+                        labels_F_DateList[index].Text = posixTime.AddMilliseconds(oneCallInfo.Daily[index].Dt * 1000).ToString("dd:MMM");
+                        labels_F_DateList[index].Left = picBoxes_F_List[index].Location.X + picBoxes_F_List[index].Width / 2 - labels_F_DateList[index].Width / 2;
                     }
                     
-
+                    //Temps
                     for (int index = 0; index < 5; index++)
                     {
-                        labels_F_List[index].Text = String.Format("{0}°/{1}°", (int)oneCallInfo.Daily[index].Temp.Min, (int)oneCallInfo.Daily[index].Temp.Max);
-                        labels_F_List[index].Left = picBoxes_F_List[index].Width / 2 - labels_F_List[index].Width / 2;//привели в центр
+                        //claiming temps
+                        labels_F_TempList[index].Text = String.Format("{0}°/{1}° \n \n {2}", (int)oneCallInfo.Daily[index].Temp.Min, (int)oneCallInfo.Daily[index].Temp.Max, oneCallInfo.Daily[index].Weather[0].Main);
+                        //centerizing
+                        labels_F_TempList[index].Left = picBoxes_F_List[index].Location.X + picBoxes_F_List[index].Width / 2 - labels_F_TempList[index].Width / 2;
                     }
                     //Images
                     for(int index = 0; index < 5; index++)

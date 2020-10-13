@@ -37,36 +37,43 @@
             this.label_Feel = new System.Windows.Forms.Label();
             this.picBox_CurWeather = new System.Windows.Forms.PictureBox();
             this.panel_forecast = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.gbFifth = new System.Windows.Forms.GroupBox();
-            this.label_F_TempFifth = new System.Windows.Forms.Label();
-            this.picBox_F_4 = new System.Windows.Forms.PictureBox();
-            this.gbFourth = new System.Windows.Forms.GroupBox();
-            this.label_F_TempFourth = new System.Windows.Forms.Label();
-            this.picBox_F_3 = new System.Windows.Forms.PictureBox();
-            this.gbThird = new System.Windows.Forms.GroupBox();
+            this.panel_F_Third = new System.Windows.Forms.Panel();
+            this.label_F_Date2 = new System.Windows.Forms.Label();
             this.label_F_TempThird = new System.Windows.Forms.Label();
             this.picBox_F_2 = new System.Windows.Forms.PictureBox();
-            this.label_F_TempTomorrow = new System.Windows.Forms.Label();
-            this.picBox_F_1 = new System.Windows.Forms.PictureBox();
+            this.panel_F_Today = new System.Windows.Forms.Panel();
+            this.label_F_Date0 = new System.Windows.Forms.Label();
             this.label_F_TempToday = new System.Windows.Forms.Label();
             this.picBox_F_Today = new System.Windows.Forms.PictureBox();
+            this.panel_F_OtherDays = new System.Windows.Forms.Panel();
+            this.panel_F_Tomorrow = new System.Windows.Forms.Panel();
+            this.label_F_Date1 = new System.Windows.Forms.Label();
+            this.label_F_TempTomorrow = new System.Windows.Forms.Label();
+            this.picBox_F_1 = new System.Windows.Forms.PictureBox();
+            this.label_F_Date4 = new System.Windows.Forms.Label();
+            this.label_F_Date3 = new System.Windows.Forms.Label();
+            this.picBox_F_4 = new System.Windows.Forms.PictureBox();
+            this.label_F_TempFourth = new System.Windows.Forms.Label();
+            this.label_F_TempFifth = new System.Windows.Forms.Label();
+            this.picBox_F_3 = new System.Windows.Forms.PictureBox();
             this.picBox_City = new System.Windows.Forms.PictureBox();
             this.but_curTemp = new System.Windows.Forms.Button();
             this.but_Forecast = new System.Windows.Forms.Button();
+            this.panel_F_Fourth = new System.Windows.Forms.Panel();
             this.panel_Temps.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_CurWeather)).BeginInit();
             this.panel_forecast.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.gbFifth.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_F_4)).BeginInit();
-            this.gbFourth.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_F_3)).BeginInit();
-            this.gbThird.SuspendLayout();
+            this.panel_F_Third.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_F_2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_F_1)).BeginInit();
+            this.panel_F_Today.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_F_Today)).BeginInit();
+            this.panel_F_OtherDays.SuspendLayout();
+            this.panel_F_Tomorrow.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_F_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_F_4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_F_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_City)).BeginInit();
+            this.panel_F_Fourth.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtBox_City
@@ -171,124 +178,42 @@
             // panel_forecast
             // 
             this.panel_forecast.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.panel_forecast.Controls.Add(this.label_F_TempTomorrow);
-            this.panel_forecast.Controls.Add(this.panel1);
-            this.panel_forecast.Controls.Add(this.picBox_F_1);
-            this.panel_forecast.Controls.Add(this.gbFifth);
-            this.panel_forecast.Controls.Add(this.gbFourth);
-            this.panel_forecast.Controls.Add(this.gbThird);
+            this.panel_forecast.Controls.Add(this.panel_F_Today);
+            this.panel_forecast.Controls.Add(this.panel_F_OtherDays);
             this.panel_forecast.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel_forecast.Location = new System.Drawing.Point(12, 120);
             this.panel_forecast.Name = "panel_forecast";
             this.panel_forecast.Size = new System.Drawing.Size(864, 430);
             this.panel_forecast.TabIndex = 8;
             // 
-            // panel1
+            // panel_F_Third
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.label_F_TempToday);
-            this.panel1.Controls.Add(this.picBox_F_Today);
-            this.panel1.Location = new System.Drawing.Point(15, 37);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(159, 380);
-            this.panel1.TabIndex = 11;
+            this.panel_F_Third.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel_F_Third.Controls.Add(this.label_F_Date2);
+            this.panel_F_Third.Controls.Add(this.label_F_TempThird);
+            this.panel_F_Third.Controls.Add(this.picBox_F_2);
+            this.panel_F_Third.Location = new System.Drawing.Point(0, 0);
+            this.panel_F_Third.Name = "panel_F_Third";
+            this.panel_F_Third.Size = new System.Drawing.Size(384, 380);
+            this.panel_F_Third.TabIndex = 13;
             // 
-            // gbFifth
+            // label_F_Date2
             // 
-            this.gbFifth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.gbFifth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.gbFifth.Controls.Add(this.label_F_TempFifth);
-            this.gbFifth.Controls.Add(this.picBox_F_4);
-            this.gbFifth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbFifth.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbFifth.Location = new System.Drawing.Point(679, 37);
-            this.gbFifth.Name = "gbFifth";
-            this.gbFifth.Size = new System.Drawing.Size(159, 380);
-            this.gbFifth.TabIndex = 15;
-            this.gbFifth.TabStop = false;
-            this.gbFifth.Text = "Today";
-            // 
-            // label_F_TempFifth
-            // 
-            this.label_F_TempFifth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_F_TempFifth.AutoSize = true;
-            this.label_F_TempFifth.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_F_TempFifth.Location = new System.Drawing.Point(24, 179);
-            this.label_F_TempFifth.Name = "label_F_TempFifth";
-            this.label_F_TempFifth.Size = new System.Drawing.Size(90, 32);
-            this.label_F_TempFifth.TabIndex = 5;
-            this.label_F_TempFifth.Text = "--/--";
-            this.label_F_TempFifth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // picBox_F_4
-            // 
-            this.picBox_F_4.Location = new System.Drawing.Point(0, 26);
-            this.picBox_F_4.Name = "picBox_F_4";
-            this.picBox_F_4.Size = new System.Drawing.Size(161, 150);
-            this.picBox_F_4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picBox_F_4.TabIndex = 4;
-            this.picBox_F_4.TabStop = false;
-            // 
-            // gbFourth
-            // 
-            this.gbFourth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.gbFourth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.gbFourth.Controls.Add(this.label_F_TempFourth);
-            this.gbFourth.Controls.Add(this.picBox_F_3);
-            this.gbFourth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbFourth.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbFourth.Location = new System.Drawing.Point(513, 37);
-            this.gbFourth.Name = "gbFourth";
-            this.gbFourth.Size = new System.Drawing.Size(159, 380);
-            this.gbFourth.TabIndex = 14;
-            this.gbFourth.TabStop = false;
-            this.gbFourth.Text = "Today";
-            // 
-            // label_F_TempFourth
-            // 
-            this.label_F_TempFourth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_F_TempFourth.AutoSize = true;
-            this.label_F_TempFourth.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_F_TempFourth.Location = new System.Drawing.Point(24, 179);
-            this.label_F_TempFourth.Name = "label_F_TempFourth";
-            this.label_F_TempFourth.Size = new System.Drawing.Size(90, 32);
-            this.label_F_TempFourth.TabIndex = 4;
-            this.label_F_TempFourth.Text = "--/--";
-            this.label_F_TempFourth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // picBox_F_3
-            // 
-            this.picBox_F_3.Location = new System.Drawing.Point(0, 26);
-            this.picBox_F_3.Name = "picBox_F_3";
-            this.picBox_F_3.Size = new System.Drawing.Size(160, 150);
-            this.picBox_F_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picBox_F_3.TabIndex = 3;
-            this.picBox_F_3.TabStop = false;
-            // 
-            // gbThird
-            // 
-            this.gbThird.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.gbThird.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.gbThird.Controls.Add(this.label_F_TempThird);
-            this.gbThird.Controls.Add(this.picBox_F_2);
-            this.gbThird.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbThird.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbThird.Location = new System.Drawing.Point(346, 37);
-            this.gbThird.Name = "gbThird";
-            this.gbThird.Size = new System.Drawing.Size(161, 380);
-            this.gbThird.TabIndex = 13;
-            this.gbThird.TabStop = false;
-            this.gbThird.Text = "Today";
+            this.label_F_Date2.AutoSize = true;
+            this.label_F_Date2.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_F_Date2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label_F_Date2.Location = new System.Drawing.Point(280, 10);
+            this.label_F_Date2.Name = "label_F_Date2";
+            this.label_F_Date2.Size = new System.Drawing.Size(49, 15);
+            this.label_F_Date2.TabIndex = 13;
+            this.label_F_Date2.Text = "03:Jan";
             // 
             // label_F_TempThird
             // 
-            this.label_F_TempThird.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label_F_TempThird.AutoSize = true;
             this.label_F_TempThird.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_F_TempThird.Location = new System.Drawing.Point(24, 179);
+            this.label_F_TempThird.ForeColor = System.Drawing.SystemColors.Control;
+            this.label_F_TempThird.Location = new System.Drawing.Point(254, 179);
             this.label_F_TempThird.Name = "label_F_TempThird";
             this.label_F_TempThird.Size = new System.Drawing.Size(90, 32);
             this.label_F_TempThird.TabIndex = 3;
@@ -297,38 +222,39 @@
             // 
             // picBox_F_2
             // 
-            this.picBox_F_2.Location = new System.Drawing.Point(0, 26);
+            this.picBox_F_2.Location = new System.Drawing.Point(223, 26);
             this.picBox_F_2.Name = "picBox_F_2";
             this.picBox_F_2.Size = new System.Drawing.Size(161, 150);
             this.picBox_F_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBox_F_2.TabIndex = 2;
             this.picBox_F_2.TabStop = false;
             // 
-            // label_F_TempTomorrow
+            // panel_F_Today
             // 
-            this.label_F_TempTomorrow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_F_TempTomorrow.AutoSize = true;
-            this.label_F_TempTomorrow.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_F_TempTomorrow.ForeColor = System.Drawing.SystemColors.Control;
-            this.label_F_TempTomorrow.Location = new System.Drawing.Point(214, 216);
-            this.label_F_TempTomorrow.Name = "label_F_TempTomorrow";
-            this.label_F_TempTomorrow.Size = new System.Drawing.Size(90, 32);
-            this.label_F_TempTomorrow.TabIndex = 2;
-            this.label_F_TempTomorrow.Text = "--/--";
-            this.label_F_TempTomorrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel_F_Today.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.panel_F_Today.Controls.Add(this.label_F_Date0);
+            this.panel_F_Today.Controls.Add(this.label_F_TempToday);
+            this.panel_F_Today.Controls.Add(this.picBox_F_Today);
+            this.panel_F_Today.Location = new System.Drawing.Point(15, 37);
+            this.panel_F_Today.Name = "panel_F_Today";
+            this.panel_F_Today.Size = new System.Drawing.Size(159, 380);
+            this.panel_F_Today.TabIndex = 11;
             // 
-            // picBox_F_1
+            // label_F_Date0
             // 
-            this.picBox_F_1.Location = new System.Drawing.Point(180, 63);
-            this.picBox_F_1.Name = "picBox_F_1";
-            this.picBox_F_1.Size = new System.Drawing.Size(160, 150);
-            this.picBox_F_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picBox_F_1.TabIndex = 1;
-            this.picBox_F_1.TabStop = false;
+            this.label_F_Date0.AutoSize = true;
+            this.label_F_Date0.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_F_Date0.ForeColor = System.Drawing.SystemColors.Control;
+            this.label_F_Date0.Location = new System.Drawing.Point(38, 10);
+            this.label_F_Date0.Name = "label_F_Date0";
+            this.label_F_Date0.Size = new System.Drawing.Size(49, 15);
+            this.label_F_Date0.TabIndex = 2;
+            this.label_F_Date0.Text = "01:Jan";
             // 
             // label_F_TempToday
             // 
+            this.label_F_TempToday.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label_F_TempToday.AutoSize = true;
             this.label_F_TempToday.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_F_TempToday.ForeColor = System.Drawing.SystemColors.Control;
@@ -337,7 +263,7 @@
             this.label_F_TempToday.Size = new System.Drawing.Size(90, 32);
             this.label_F_TempToday.TabIndex = 1;
             this.label_F_TempToday.Text = "--/--";
-            this.label_F_TempToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_F_TempToday.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // picBox_F_Today
             // 
@@ -347,6 +273,133 @@
             this.picBox_F_Today.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBox_F_Today.TabIndex = 0;
             this.picBox_F_Today.TabStop = false;
+            // 
+            // panel_F_OtherDays
+            // 
+            this.panel_F_OtherDays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.panel_F_OtherDays.Controls.Add(this.panel_F_Tomorrow);
+            this.panel_F_OtherDays.Controls.Add(this.panel_F_Third);
+            this.panel_F_OtherDays.Controls.Add(this.label_F_Date4);
+            this.panel_F_OtherDays.Controls.Add(this.picBox_F_4);
+            this.panel_F_OtherDays.Controls.Add(this.label_F_TempFifth);
+            this.panel_F_OtherDays.Controls.Add(this.panel_F_Fourth);
+            this.panel_F_OtherDays.Location = new System.Drawing.Point(123, 37);
+            this.panel_F_OtherDays.Name = "panel_F_OtherDays";
+            this.panel_F_OtherDays.Size = new System.Drawing.Size(720, 380);
+            this.panel_F_OtherDays.TabIndex = 16;
+            // 
+            // panel_F_Tomorrow
+            // 
+            this.panel_F_Tomorrow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.panel_F_Tomorrow.Controls.Add(this.label_F_Date1);
+            this.panel_F_Tomorrow.Controls.Add(this.label_F_TempTomorrow);
+            this.panel_F_Tomorrow.Controls.Add(this.picBox_F_1);
+            this.panel_F_Tomorrow.Location = new System.Drawing.Point(0, 0);
+            this.panel_F_Tomorrow.Name = "panel_F_Tomorrow";
+            this.panel_F_Tomorrow.Size = new System.Drawing.Size(217, 380);
+            this.panel_F_Tomorrow.TabIndex = 3;
+            // 
+            // label_F_Date1
+            // 
+            this.label_F_Date1.AutoSize = true;
+            this.label_F_Date1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_F_Date1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label_F_Date1.Location = new System.Drawing.Point(108, 10);
+            this.label_F_Date1.Name = "label_F_Date1";
+            this.label_F_Date1.Size = new System.Drawing.Size(49, 15);
+            this.label_F_Date1.TabIndex = 12;
+            this.label_F_Date1.Text = "02:Jan";
+            // 
+            // label_F_TempTomorrow
+            // 
+            this.label_F_TempTomorrow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_F_TempTomorrow.AutoSize = true;
+            this.label_F_TempTomorrow.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_F_TempTomorrow.ForeColor = System.Drawing.SystemColors.Control;
+            this.label_F_TempTomorrow.Location = new System.Drawing.Point(88, 179);
+            this.label_F_TempTomorrow.Name = "label_F_TempTomorrow";
+            this.label_F_TempTomorrow.Size = new System.Drawing.Size(90, 32);
+            this.label_F_TempTomorrow.TabIndex = 2;
+            this.label_F_TempTomorrow.Text = "--/--";
+            this.label_F_TempTomorrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // picBox_F_1
+            // 
+            this.picBox_F_1.Location = new System.Drawing.Point(54, 26);
+            this.picBox_F_1.Name = "picBox_F_1";
+            this.picBox_F_1.Size = new System.Drawing.Size(160, 150);
+            this.picBox_F_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picBox_F_1.TabIndex = 1;
+            this.picBox_F_1.TabStop = false;
+            // 
+            // label_F_Date4
+            // 
+            this.label_F_Date4.AutoSize = true;
+            this.label_F_Date4.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_F_Date4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label_F_Date4.Location = new System.Drawing.Point(607, 10);
+            this.label_F_Date4.Name = "label_F_Date4";
+            this.label_F_Date4.Size = new System.Drawing.Size(49, 15);
+            this.label_F_Date4.TabIndex = 15;
+            this.label_F_Date4.Text = "05:Jan";
+            // 
+            // label_F_Date3
+            // 
+            this.label_F_Date3.AutoSize = true;
+            this.label_F_Date3.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_F_Date3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label_F_Date3.Location = new System.Drawing.Point(439, 10);
+            this.label_F_Date3.Name = "label_F_Date3";
+            this.label_F_Date3.Size = new System.Drawing.Size(49, 15);
+            this.label_F_Date3.TabIndex = 14;
+            this.label_F_Date3.Text = "04:Jan";
+            // 
+            // picBox_F_4
+            // 
+            this.picBox_F_4.Location = new System.Drawing.Point(556, 26);
+            this.picBox_F_4.Name = "picBox_F_4";
+            this.picBox_F_4.Size = new System.Drawing.Size(161, 150);
+            this.picBox_F_4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picBox_F_4.TabIndex = 4;
+            this.picBox_F_4.TabStop = false;
+            // 
+            // label_F_TempFourth
+            // 
+            this.label_F_TempFourth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_F_TempFourth.AutoSize = true;
+            this.label_F_TempFourth.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_F_TempFourth.ForeColor = System.Drawing.SystemColors.Control;
+            this.label_F_TempFourth.Location = new System.Drawing.Point(421, 179);
+            this.label_F_TempFourth.Name = "label_F_TempFourth";
+            this.label_F_TempFourth.Size = new System.Drawing.Size(90, 32);
+            this.label_F_TempFourth.TabIndex = 4;
+            this.label_F_TempFourth.Text = "--/--";
+            this.label_F_TempFourth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_F_TempFifth
+            // 
+            this.label_F_TempFifth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_F_TempFifth.AutoSize = true;
+            this.label_F_TempFifth.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_F_TempFifth.ForeColor = System.Drawing.SystemColors.Control;
+            this.label_F_TempFifth.Location = new System.Drawing.Point(588, 179);
+            this.label_F_TempFifth.Name = "label_F_TempFifth";
+            this.label_F_TempFifth.Size = new System.Drawing.Size(90, 32);
+            this.label_F_TempFifth.TabIndex = 5;
+            this.label_F_TempFifth.Text = "--/--";
+            this.label_F_TempFifth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // picBox_F_3
+            // 
+            this.picBox_F_3.Location = new System.Drawing.Point(387, 26);
+            this.picBox_F_3.Name = "picBox_F_3";
+            this.picBox_F_3.Size = new System.Drawing.Size(160, 150);
+            this.picBox_F_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picBox_F_3.TabIndex = 3;
+            this.picBox_F_3.TabStop = false;
             // 
             // picBox_City
             // 
@@ -387,6 +440,17 @@
             this.but_Forecast.UseVisualStyleBackColor = true;
             this.but_Forecast.Click += new System.EventHandler(this.but_Forecast_Click);
             // 
+            // panel_F_Fourth
+            // 
+            this.panel_F_Fourth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            this.panel_F_Fourth.Controls.Add(this.label_F_Date3);
+            this.panel_F_Fourth.Controls.Add(this.picBox_F_3);
+            this.panel_F_Fourth.Controls.Add(this.label_F_TempFourth);
+            this.panel_F_Fourth.Location = new System.Drawing.Point(0, 0);
+            this.panel_F_Fourth.Name = "panel_F_Fourth";
+            this.panel_F_Fourth.Size = new System.Drawing.Size(550, 377);
+            this.panel_F_Fourth.TabIndex = 16;
+            // 
             // WeatherControlUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -406,21 +470,22 @@
             this.panel_Temps.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_CurWeather)).EndInit();
             this.panel_forecast.ResumeLayout(false);
-            this.panel_forecast.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.gbFifth.ResumeLayout(false);
-            this.gbFifth.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_F_4)).EndInit();
-            this.gbFourth.ResumeLayout(false);
-            this.gbFourth.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_F_3)).EndInit();
-            this.gbThird.ResumeLayout(false);
-            this.gbThird.PerformLayout();
+            this.panel_F_Third.ResumeLayout(false);
+            this.panel_F_Third.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_F_2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_F_1)).EndInit();
+            this.panel_F_Today.ResumeLayout(false);
+            this.panel_F_Today.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_F_Today)).EndInit();
+            this.panel_F_OtherDays.ResumeLayout(false);
+            this.panel_F_OtherDays.PerformLayout();
+            this.panel_F_Tomorrow.ResumeLayout(false);
+            this.panel_F_Tomorrow.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_F_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_F_4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_F_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_City)).EndInit();
+            this.panel_F_Fourth.ResumeLayout(false);
+            this.panel_F_Fourth.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -444,15 +509,21 @@
         private System.Windows.Forms.PictureBox picBox_F_2;
         private System.Windows.Forms.PictureBox picBox_F_1;
         private System.Windows.Forms.PictureBox picBox_F_Today;
-        private System.Windows.Forms.PictureBox picBox_F_4;
-        private System.Windows.Forms.GroupBox gbFifth;
-        private System.Windows.Forms.GroupBox gbFourth;
-        private System.Windows.Forms.GroupBox gbThird;
         private System.Windows.Forms.Label label_F_TempFifth;
         private System.Windows.Forms.Label label_F_TempFourth;
         private System.Windows.Forms.Label label_F_TempThird;
         private System.Windows.Forms.Label label_F_TempTomorrow;
         private System.Windows.Forms.Label label_F_TempToday;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_F_Today;
+        private System.Windows.Forms.PictureBox picBox_F_4;
+        private System.Windows.Forms.Label label_F_Date4;
+        private System.Windows.Forms.Label label_F_Date3;
+        private System.Windows.Forms.Label label_F_Date2;
+        private System.Windows.Forms.Label label_F_Date1;
+        private System.Windows.Forms.Label label_F_Date0;
+        private System.Windows.Forms.Panel panel_F_Third;
+        private System.Windows.Forms.Panel panel_F_Tomorrow;
+        private System.Windows.Forms.Panel panel_F_OtherDays;
+        private System.Windows.Forms.Panel panel_F_Fourth;
     }
 }
