@@ -16,6 +16,7 @@ namespace SFDestroyer.Forms
             InitializeComponent();
             SetRoundedShape(panel_Temps, 30);
             SetRoundedShape(panel_forecast, 30);
+            SetRoundedShape(txtBox_City, 10);
             #region first try
             /*            //parsing
                         using (WebClient apiInteracion = new WebClient { Encoding = Encoding.UTF8 })
@@ -40,9 +41,10 @@ namespace SFDestroyer.Forms
                         //.http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=0ed1773f3181837e871a4af846d38ab1
              */
             #endregion
-
             panel_Temps.BringToFront();
             apiInteraction(Properties.Settings.Default.CitySetDefault);
+
+            SetRoundedShape(gbToday, 30);
         }
 
         #region Buttons
@@ -71,6 +73,10 @@ namespace SFDestroyer.Forms
         /// api.openweathermap.org/data/2.5/forecast/daily?q=Moscow&cnt=5&appid=0ed1773f3181837e871a4af846d38ab1
         void apiInteraction (string city)
         {
+            Label[] labels_F_List = { label_F_TempToday, label_F_TempTomorrow, label_F_TempThird, label_F_TempFourth, label_F_TempFifth };
+            PictureBox[] picBoxes_F_List = { picBox_F_Today, picBox_F_1, picBox_F_2, picBox_F_3, picBox_F_4 };
+            GroupBox[] gb_F_List = { gbToday, gbTomorrow, gbThird, gbFourth, gbFifth };
+
             using (WebClient apiLoading = new WebClient { Encoding = Encoding.UTF8 })
             {
                 //using "User-Agent" header for access to the site page
@@ -96,7 +102,7 @@ namespace SFDestroyer.Forms
                     label_Temperature.Text = ((int)oneCallInfo.Daily[0].Temp.Min + "°/" + (int)oneCallInfo.Daily[0].Temp.Max + '°').ToString();
                     label_curTemperature.Text = ((int)oneCallInfo.Current.Temp + "°").ToString();
                     label_curWeather.Text = oneCallInfo.Current.Weather[0].Main;
-                    label_curCity.Text = ("Weather: " + city);
+                    label_curCity.Text = ("Weather: " + weatherInfo.Name);
                     label_Feel.Text = String.Format("Feel: {0}°", (int)oneCallInfo.Current.Feels_like);
                     //Images
                     using (Stream stream = apiLoading.OpenRead("http://openweathermap.org/img/wn/" + oneCallInfo.Current.Weather[0].Icon + "@4x.png"))
@@ -105,10 +111,41 @@ namespace SFDestroyer.Forms
                     }
 
                 #endregion
-
                     #region Forecast
+                {
+                    //Labels
+                    /* for (int index = 2; index < 5; index++)
+                     {
 
-                    #endregion
+                     }
+                     label_F_Third.Text = (TimeSpan.FromMilliseconds(double.Parse(oneCallInfo.Daily[2].Dt.ToString())).Ticks).ToString("dd:MMM");
+                     label_F_Fourth.Text = new DateTime(oneCallInfo.Daily[3].Dt).ToString("dd:MMM");
+                     label_F_Fifth.Text = new DateTime(oneCallInfo.Daily[4].Dt).ToString("dd:MMM"); TOOOOOOOOOOOOOOOODOOOOOOOOOOOOOOOOOOOOOOOOOOOO*/
+
+                    for(int index = 0; index < 5; index++)
+                    {
+                        //return current date
+                        var posixTime = DateTime.SpecifyKind(new DateTime(1970, 1, 1), DateTimeKind.Utc);
+                        //add to groupboxes texts
+                        gb_F_List[index].Text = posixTime.AddMilliseconds(oneCallInfo.Daily[index].Dt * 1000).ToString("dd:MMM");
+                    }
+                    
+
+                    for (int index = 0; index < 5; index++)
+                    {
+                        labels_F_List[index].Text = String.Format("{0}°/{1}°", (int)oneCallInfo.Daily[index].Temp.Min, (int)oneCallInfo.Daily[index].Temp.Max);
+                        labels_F_List[index].Left = picBoxes_F_List[index].Width / 2 - labels_F_List[index].Width / 2;//привели в центр
+                    }
+                    //Images
+                    for(int index = 0; index < 5; index++)
+                    {
+                        using (Stream stream = apiLoading.OpenRead("http://openweathermap.org/img/wn/" + oneCallInfo.Daily[index].Weather[0].Icon + "@4x.png"))
+                        {
+                            picBoxes_F_List[index].Image = Bitmap.FromStream(stream);
+                        }
+                    }
+                }
+                #endregion
                 #endregion
             }
         }

@@ -43,23 +43,5 @@ namespace SFDestroyer.Properties {
                 this["CitySetDefault"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>.txt</string>
-  <string>.jpeg</string>
-  <string>.mp4</string>
-  <string>.mp8</string>
-</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection FilterSelf {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["FilterSelf"]));
-            }
-            set {
-                this["FilterSelf"] = value;
-            }
-        }
     }
 }
