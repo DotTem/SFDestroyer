@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Windows.Forms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+<ItemGroup>
+
+<EmbeddedResource Include="SFDestroyer\Properties\Resources.resx">
+  <Generator>PublicResXFileCodeGenerator</Generator>
+  <Link>SharedResources.resx</Link>
+  <LastGenOutput>SharedResources.Designer.cs</LastGenOutput>
+  <SubType>Designer</SubType>
+  <CustomToolNamespace>SFDestroyer.Properties</CustomToolNamespace>
+</EmbeddedResource>
+<None Include="SFDestroyer\Properties\Resources.Designer.cs">
+  <AutoGen>True</AutoGen>
+  <DependentUpon>SharedResources.resx</DependentUpon>
+  <DesignTime>True</DesignTime>
+</None>
+</ItemGroup>
+
+</Project>
