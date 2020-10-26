@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Windows.Forms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+<EmbeddedResource Include="GSMN\Properties\Resources.resx">
+  <Generator>PublicResXFileCodeGenerator</Generator>
+  <Link>Resources.resx</Link>
+  <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+  <SubType>Designer</SubType>
+  <CustomToolNamespace>GSMN.Properties</CustomToolNamespace>
+</EmbeddedResource>
+<None Include="SFDestroyer\Properties\Resources.Designer.cs">
+  <AutoGen>True</AutoGen>
+  <DependentUpon>Resources.resx</DependentUpon>
+  <DesignTime>True</DesignTime>
+</None>
+	
+  </ItemGroup>
+
+
+</Project>

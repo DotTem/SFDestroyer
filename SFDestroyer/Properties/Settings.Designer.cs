@@ -43,5 +43,17 @@ namespace SFDestroyer.Properties {
                 this["CitySetDefault"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Moscow")]
+        public global::System.Collections.Generic.List<System.Windows.Forms.Panel> filmsList {
+            get {
+                return ((global::System.Collections.Generic.List<System.Windows.Forms.Panel>)(this["filmsList"]));
+            }
+            set {
+                this["filmsList"] = value;
+            }
+        }
     }
 }

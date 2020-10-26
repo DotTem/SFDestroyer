@@ -32,6 +32,8 @@
             this.txtBox_citySet = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.pb_flag = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_flag)).BeginInit();
             this.SuspendLayout();
             // 
             // label_defCity
@@ -80,11 +82,22 @@
             this.checkBox2.Text = "checkBox2";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
+            // pb_flag
+            // 
+            this.pb_flag.Image = global::SFDestroyer.Properties.Resources.turk_flag;
+            this.pb_flag.Location = new System.Drawing.Point(711, 496);
+            this.pb_flag.Name = "pb_flag";
+            this.pb_flag.Size = new System.Drawing.Size(177, 118);
+            this.pb_flag.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_flag.TabIndex = 4;
+            this.pb_flag.TabStop = false;
+            // 
             // SettingsControlUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.Controls.Add(this.pb_flag);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.txtBox_citySet);
@@ -92,7 +105,8 @@
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "SettingsControlUser";
-            this.Size = new System.Drawing.Size(885, 614);
+            this.Size = new System.Drawing.Size(888, 614);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_flag)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,5 +118,6 @@
         private System.Windows.Forms.TextBox txtBox_citySet;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.PictureBox pb_flag;
     }
 }
