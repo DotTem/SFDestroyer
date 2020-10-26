@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -11,17 +12,22 @@ namespace SFDestroyer.Forms
 {
     public partial class WeatherControlUser : UserControl
     {
+        Color previousColor = new Color();
+
         public WeatherControlUser()
         {
             InitializeComponent();
 
+            
+
             SetRoundedShape(panel_Temps, 30);
             SetRoundedShape(panel_forecast, 30);            
             SetRoundedShape(panel_F_Today, 30);
-            SetRoundedShape(panel_F_OtherDays, 30);
-            SetRoundedShape(txtBox_City, 10);
             SetRoundedShape(panel_F_Tomorrow, 30);
             SetRoundedShape(panel_F_Third, 30);
+            SetRoundedShape(panel_F_Fourth, 30);
+            SetRoundedShape(panel_F_OtherDays, 30);
+            SetRoundedShape(txtBox_City, 10);
 
             #region first try
             /*            //parsing
@@ -79,8 +85,6 @@ namespace SFDestroyer.Forms
         /// api.openweathermap.org/data/2.5/forecast/daily?q=Moscow&cnt=5&appid=0ed1773f3181837e871a4af846d38ab1
         void apiInteraction (string city)
         {
-            Label[] labels_F_TempList = { label_F_TempToday, label_F_TempTomorrow, label_F_TempThird, label_F_TempFourth, label_F_TempFifth };
-            Label[] labels_F_DateList = { label_F_Date0, label_F_Date1, label_F_Date2, label_F_Date3, label_F_Date4 };
             PictureBox[] picBoxes_F_List = { picBox_F_Today, picBox_F_1, picBox_F_2, picBox_F_3, picBox_F_4 };
 
             using (WebClient apiLoading = new WebClient { Encoding = Encoding.UTF8 })
@@ -120,23 +124,38 @@ namespace SFDestroyer.Forms
                     #region Forecast
                 {
                     //Labels
-
-                    for(int index = 0; index < 5; index++)
+                    label_F_CurCity.Text = ("Weather: " + weatherInfo.Name);
+                    for (int index = 0; index < 5; index++)
                     {
                         //return current date
                         var posixTime = DateTime.SpecifyKind(new DateTime(1970, 1, 1), DateTimeKind.Utc);
-                        //add to groupboxes texts
-                        labels_F_DateList[index].Text = posixTime.AddMilliseconds(oneCallInfo.Daily[index].Dt * 1000).ToString("dd:MMM");
-                        labels_F_DateList[index].Left = picBoxes_F_List[index].Location.X + picBoxes_F_List[index].Width / 2 - labels_F_DateList[index].Width / 2;
+                        //Init label for date
+                        Label date = new Label();
+                        date.Location = new Point(picBoxes_F_List[index].Location.X + picBoxes_F_List[index].Width / 4, picBoxes_F_List[index].Location.Y - date.Height);
+                        date.Text = posixTime.AddMilliseconds(oneCallInfo.Daily[index].Dt * 1000).ToString("dd:MMM");
+                        date.TextAlign = ContentAlignment.MiddleCenter;
+                        date.ForeColor = Color.White;
+                        date.AutoSize = true;
+                        date.Font = new Font("Consolas", 9.75f);
+                        date.MouseMove += new MouseEventHandler(Label_MouseMove);
+                        date.MouseLeave += new EventHandler(Label_MouseLeave);
+                        picBoxes_F_List[index].Parent.Controls.Add(date);
                     }
                     
                     //Temps
                     for (int index = 0; index < 5; index++)
                     {
-                        //claiming temps
-                        labels_F_TempList[index].Text = String.Format("{0}°/{1}° \n \n {2}", (int)oneCallInfo.Daily[index].Temp.Min, (int)oneCallInfo.Daily[index].Temp.Max, oneCallInfo.Daily[index].Weather[0].Main);
-                        //centerizing
-                        labels_F_TempList[index].Left = picBoxes_F_List[index].Location.X + picBoxes_F_List[index].Width / 2 - labels_F_TempList[index].Width / 2;
+                        //init label for temp
+                        Label temperature = new Label();
+                        temperature.Location = new Point(picBoxes_F_List[index].Location.X + picBoxes_F_List[index].Width / 4, picBoxes_F_List[index].Location.Y + picBoxes_F_List[index].Height);
+                        temperature.Text = String.Format("{0}°/{1}°\n{2}", (int)oneCallInfo.Daily[index].Temp.Min, (int)oneCallInfo.Daily[index].Temp.Max, oneCallInfo.Daily[index].Weather[0].Main);
+                        temperature.TextAlign = ContentAlignment.MiddleCenter;
+                        temperature.ForeColor = Color.White;
+                        temperature.AutoSize = true;
+                        temperature.Font = new Font("Consolas", 20);
+                        temperature.MouseMove += new MouseEventHandler(Label_MouseMove);
+                        temperature.MouseLeave += new EventHandler(Label_MouseLeave);
+                        picBoxes_F_List[index].Parent.Controls.Add(temperature);
                     }
                     //Images
                     for(int index = 0; index < 5; index++)
@@ -178,7 +197,11 @@ namespace SFDestroyer.Forms
         #endregion
 
 
-        //For rounded corners
+        /// <summary>
+        /// Make the control's corner circlier
+        /// </summary>
+        /// <param name="control"></param>
+        /// <param name="radius"></param>
         static void SetRoundedShape(Control control, int radius)
         {
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
@@ -192,5 +215,66 @@ namespace SFDestroyer.Forms
             path.AddArc(0, 0, radius, radius, 180, 90);
             control.Region = new Region(path);
         }
+
+        #region Events
+
+        private void Label_MouseMove(object sender, EventArgs e)
+        {
+            previousColor = ((Label)sender).BackColor;
+            ((Label)sender).Parent.BackColor = Color.FromArgb(80, 80, 80);
+        }
+
+        private void Label_MouseLeave(object sender, EventArgs e)
+        {
+
+            ((Label)sender).Parent.BackColor = previousColor;
+        }
+
+        private void panel_F_Today_MouseMove(object sender, MouseEventArgs e)
+        {
+            panel_F_Today.BackColor = Color.FromArgb(80, 80, 80);
+        }
+
+        private void panel_F_Tomorrow_MouseMove(object sender, MouseEventArgs e)
+        {
+            panel_F_Tomorrow.BackColor = Color.FromArgb(80, 80, 80);
+        }
+
+        private void panel_F_Third_MouseMove(object sender, MouseEventArgs e)
+        {
+            panel_F_Third.BackColor = Color.FromArgb(80, 80, 80);
+        }
+
+        private void panel_F_Fourth_MouseMove(object sender, MouseEventArgs e)
+        {
+            panel_F_Fourth.BackColor = Color.FromArgb(80, 80, 80);
+        }
+
+        private void panel_F_OtherDays_MouseMove(object sender, MouseEventArgs e)
+        {
+            panel_F_OtherDays.BackColor = Color.FromArgb(80, 80, 80);
+        }
+
+        private void panel_F_Today_MouseLeave(object sender, EventArgs e)
+        {
+            panel_F_Today.BackColor = Color.FromArgb(68, 68, 68);
+        }
+        private void panel_F_Tomorrow_MouseLeave(object sender, EventArgs e)
+        {
+            panel_F_Tomorrow.BackColor = Color.FromArgb(66, 66, 66);
+        }
+        private void panel_F_Third_MouseLeave(object sender, EventArgs e)
+        {
+            panel_F_Third.BackColor = Color.FromArgb(64, 64, 64);
+        }
+        private void panel_F_Fourth_MouseLeave(object sender, EventArgs e)
+        {
+            panel_F_Fourth.BackColor = Color.FromArgb(62, 62, 62);
+        }
+        private void panel_F_OtherDays_MouseLeave(object sender, EventArgs e)
+        {
+            panel_F_OtherDays.BackColor = Color.FromArgb(60, 60, 60);
+        }
+        #endregion
     }
 }

@@ -14,6 +14,7 @@ using System.Threading;
 using System.Drawing.Text;
 using System.Windows.Controls;
 using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace SFDestroyer.Forms
 {
@@ -28,36 +29,26 @@ namespace SFDestroyer.Forms
         private int timerSeconds = 0;
 
         #region Moving
-        //coords of nouse
-        private int mouseX = 0;
-        private int mouseY = 0;
-        //is mouse down
-        private bool MouseDown = false;
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
         private void panel_Upper_MouseDown(object sender, MouseEventArgs e)
         {
-            MouseDown = true;
-        }
-
-        private void panel_Upper_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (MouseDown)
+            if (e.Button == MouseButtons.Left)
             {
-                //set variables = panel center
-                mouseX = MousePosition.X - ActiveForm.Size.Width / 2;
-                mouseY = MousePosition.Y - panel_Upper.Size.Height / 2;
-                //set window on variables coords
-                this.SetDesktopLocation(mouseX, mouseY);
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
-        }
-
-        private void panel_Upper_MouseUp(object sender, MouseEventArgs e)
-        {
-            MouseDown = false;
         }
         #endregion
 
         #region Main Methods
-        
+
         /// <summary>
         /// Scanner with extension filter
         /// </summary>

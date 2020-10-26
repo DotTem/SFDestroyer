@@ -8,5 +8,8 @@
     <Setting Name="CitySetDefault" Type="System.String" Scope="User">
       <Value Profile="(Default)">Moscow</Value>
     </Setting>
+    <Setting Name="filmsList" Type="System.Collections.Generic.List&lt;System.Windows.Forms.Panel&gt;" Scope="User">
+      <Value Profile="(Default)">Moscow</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

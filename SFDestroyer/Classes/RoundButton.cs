@@ -109,10 +109,15 @@ namespace SFDestroyer.Classes
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
-            base.OnMouseUp(e);
-            Parent.Invalidate(Bounds, false);
-            Invalidate();
-            IsPressed = false;
+            try
+            {
+                base.OnMouseUp(e);
+                Parent.Invalidate(Bounds, false);
+                Invalidate();
+                IsPressed = false;
+            }
+            catch { }
+        
         }
 
         protected GraphicsPath Path
