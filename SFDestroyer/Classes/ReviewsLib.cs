@@ -1,5 +1,6 @@
 ﻿using SFDestroyer.Forms;
 using System;
+using System.Activities;
 using System.Activities.Expressions;
 using System.Collections.Generic;
 using System.Drawing;
@@ -35,7 +36,6 @@ namespace SFDestroyer.Classes
         public static NumericUpDown numeric_rating = new NumericUpDown();
         public static Label label_rating = new Label();
         public static RoundButton but_addFilms = new RoundButton();
-
 
         public static void CreateForm(Panel parentPanel)
         {

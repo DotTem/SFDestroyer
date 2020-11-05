@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using SFDestroyer.Classes;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Net;
@@ -13,6 +14,8 @@ namespace SFDestroyer.Forms
     public partial class WeatherControlUser : UserControl
     {
         Color previousColor = new Color();
+        List<Label> tempetureLabels = new List<Label>();
+        List<Label> dateLabels = new List<Label>();
 
         public WeatherControlUser()
         {
@@ -123,12 +126,21 @@ namespace SFDestroyer.Forms
                 #endregion
                     #region Forecast
                 {
-                    //Labels
+
+                    //Date
                     label_F_CurCity.Text = ("Weather: " + weatherInfo.Name);
                     for (int index = 0; index < 5; index++)
                     {
+                        //if Controls created
+                        if(dateLabels.Count == 5)
+                        {
+                            DateTime posixTime = DateTime.SpecifyKind(new DateTime(1970, 1, 1), DateTimeKind.Utc);
+                            dateLabels[index].Text = posixTime.AddMilliseconds(oneCallInfo.Daily[index].Dt * 1000).ToString("dd:MMM");
+                        }
+                        else 
+                        { 
                         //return current date
-                        var posixTime = DateTime.SpecifyKind(new DateTime(1970, 1, 1), DateTimeKind.Utc);
+                        DateTime posixTime = DateTime.SpecifyKind(new DateTime(1970, 1, 1), DateTimeKind.Utc);
                         //Init label for date
                         Label date = new Label();
                         date.Location = new Point(picBoxes_F_List[index].Location.X + picBoxes_F_List[index].Width / 4, picBoxes_F_List[index].Location.Y - date.Height);
@@ -140,22 +152,35 @@ namespace SFDestroyer.Forms
                         date.MouseMove += new MouseEventHandler(Label_MouseMove);
                         date.MouseLeave += new EventHandler(Label_MouseLeave);
                         picBoxes_F_List[index].Parent.Controls.Add(date);
+                        }
+                   
                     }
                     
                     //Temps
                     for (int index = 0; index < 5; index++)
                     {
-                        //init label for temp
-                        Label temperature = new Label();
-                        temperature.Location = new Point(picBoxes_F_List[index].Location.X + picBoxes_F_List[index].Width / 4, picBoxes_F_List[index].Location.Y + picBoxes_F_List[index].Height);
-                        temperature.Text = String.Format("{0}°/{1}°\n{2}", (int)oneCallInfo.Daily[index].Temp.Min, (int)oneCallInfo.Daily[index].Temp.Max, oneCallInfo.Daily[index].Weather[0].Main);
-                        temperature.TextAlign = ContentAlignment.MiddleCenter;
-                        temperature.ForeColor = Color.White;
-                        temperature.AutoSize = true;
-                        temperature.Font = new Font("Consolas", 20);
-                        temperature.MouseMove += new MouseEventHandler(Label_MouseMove);
-                        temperature.MouseLeave += new EventHandler(Label_MouseLeave);
-                        picBoxes_F_List[index].Parent.Controls.Add(temperature);
+                        //if Controls Created
+                        if (tempetureLabels.Count == 5)
+                        {
+                            tempetureLabels[index].Text = String.Format("{0}°/{1}°\n{2}", (int)oneCallInfo.Daily[index].Temp.Min, (int)oneCallInfo.Daily[index].Temp.Max, oneCallInfo.Daily[index].Weather[0].Main);
+                        }
+                        else
+                        {
+                            //init label for temp
+                            Label temperature = new Label();
+                            temperature.Name = String.Format("label_Temperature" + index);
+                            temperature.Location = new Point(picBoxes_F_List[index].Location.X + picBoxes_F_List[index].Width / 5, picBoxes_F_List[index].Location.Y + picBoxes_F_List[index].Height);
+                            temperature.Text = String.Format("{0}°/{1}°\n{2}", (int)oneCallInfo.Daily[index].Temp.Min, (int)oneCallInfo.Daily[index].Temp.Max, oneCallInfo.Daily[index].Weather[0].Main);
+                            temperature.TextAlign = ContentAlignment.MiddleCenter;
+                            temperature.ForeColor = Color.White;
+                            temperature.AutoSize = true;
+                            temperature.Font = new Font("Consolas", 20);
+                            temperature.MouseMove += new MouseEventHandler(Label_MouseMove);
+                            temperature.MouseLeave += new EventHandler(Label_MouseLeave);
+                            tempetureLabels.Add(temperature);
+                            picBoxes_F_List[index].Parent.Controls.Add(temperature);
+                            
+                        }
                     }
                     //Images
                     for(int index = 0; index < 5; index++)
@@ -276,5 +301,6 @@ namespace SFDestroyer.Forms
             panel_F_OtherDays.BackColor = Color.FromArgb(60, 60, 60);
         }
         #endregion
+
     }
 }
